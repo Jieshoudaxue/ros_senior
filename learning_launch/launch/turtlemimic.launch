@@ -1,0 +1,12 @@
+<launch>
+
+  <remap from="turtle1" to="ycao"/>
+
+  <node pkg="turtlesim" type="turtlesim_node" name="turtle_sim" required="true">
+
+  </node>
+
+  <node pkg="turtlesim" type="draw_square" name="draw_square_cmd" required="true">
+  </node>
+
+</launch>

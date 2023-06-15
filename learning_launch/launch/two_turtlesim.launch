@@ -1,0 +1,24 @@
+<launch>
+
+  <param name="turtle_number" value="2"/>
+  <arg name="TurtlesimName1" default="Tom"/>
+  <arg name="TurtlesimName2" default="Jerry"/>
+
+  <node pkg="turtlesim" type="turtlesim_node" name="sim_node1" respawn="true">
+    <remap from="turtle1" to="sim_node1"/>
+    <param name="turtle_name" value="$(arg TurtlesimName1)"/>
+  </node>
+
+  <node pkg="turtlesim" type="turtlesim_node" name="sim_node2" respawn="true">
+    <remap from="turtle1" to="sim_node2"/>
+    <param name="turtle_name" value="$(arg TurtlesimName2)"/>
+  </node>
+
+  <node pkg="turtlesim" name="mimic" type="mimic" output="screen" required="true" >
+    <remap from="input" to="sim_node1"/>
+    <remap from="output" to="sim_node2"/>
+  </node>
+
+
+
+</launch>

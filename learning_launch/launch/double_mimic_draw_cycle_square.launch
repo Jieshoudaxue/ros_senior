@@ -1,7 +1,13 @@
 <launch>
-  <include file="$(find learning_launch)/launch/turtlesim1.launch"/>
-  <include file="$(find learning_launch)/launch/turtlesim2.launch"/>
-  
+  <group ns="turtlesim1">
+    <include file="$(find learning_launch)/launch/two_turtlesim.launch"/>
+
+  </group>
+
+  <group ns="turtlesim2">
+    <include file="$(find learning_launch)/launch/two_turtlesim.launch"/>
+  </group>
+
   <node 
     pkg="rostopic" type="rostopic" name="rostopic" output="screen" required="true" 
     args="pub /turtlesim1/sim_node1/cmd_vel geometry_msgs/Twist -r 1 -- '[2.0, 0.0, 0.0]' '[0.0, 0.0, -1.8]'"

@@ -38,8 +38,14 @@ int main(int argc, char ** argv) {
         }
 
         geometry_msgs::Twist vel;
-        vel.angular.z = 4.0 * atan2(tf_data.getOrigin().y(), tf_data.getOrigin().x());
         vel.linear.x = 0.5 * sqrt(pow(tf_data.getOrigin().x(), 2) + pow(tf_data.getOrigin().y(), 2));
+        vel.angular.z = 4.0 * atan2(tf_data.getOrigin().y(), tf_data.getOrigin().x());
+
+        // 下面的改动，可以让turtle1控制turtle2的转向，即turtle2跟随turtle1转，但turtle2追不上turtle1
+        // double roll, pitch, yaw;
+        // tf::Quaternion qua = tf_data.getRotation();
+        // tf::Matrix3x3(qua).getRPY(roll, pitch, yaw);
+        // vel.angular.z = 4.0 * yaw;
 
         cmd_pub.publish(vel);
 

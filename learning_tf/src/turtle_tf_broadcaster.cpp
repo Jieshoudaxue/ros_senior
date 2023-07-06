@@ -3,7 +3,7 @@
 #include <turtlesim/Pose.h>
 #include "cxxopts.hpp"
 
-void poseCb(const turtlesim::PoseConstPtr& msg, tf::TransformBroadcaster br, const std::string& turtle_name) {
+void poseCb(const turtlesim::PoseConstPtr& msg, tf::TransformBroadcaster& br, const std::string& turtle_name) {
     tf::Transform tf_data;
     tf_data.setOrigin(tf::Vector3(msg->x, msg->y, 0.0));
     tf::Quaternion q;
@@ -40,7 +40,7 @@ int main(int argc, char ** argv) {
 
 
     ros::NodeHandle nh;
-    ros::Subscriber sub = nh.subscribe<turtlesim::Pose>(pose_topic, 10, std::bind(poseCb, std::placeholders::_1, br, turtle_name));
+    ros::Subscriber sub = nh.subscribe<turtlesim::Pose>(pose_topic, 10, std::bind(poseCb, std::placeholders::_1, std::ref(br), turtle_name));
 
 	ros::spin();
 

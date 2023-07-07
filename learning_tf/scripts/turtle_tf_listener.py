@@ -28,7 +28,7 @@ def main():
   rate = rospy.Rate(10)
   while not rospy.is_shutdown():
     try:
-      (translation, rotation) = tf_listener.lookupTransform("/turtle2", "turtle1", torpy.Time(0))
+      (translation, rotation) = tf_listener.lookupTransform("/turtle2", "turtle1", rospy.Time(0))
     except (tf.LookupException, tf.ConnectivityException, tf.ExtrapolationException):
       continue
 
@@ -43,6 +43,8 @@ def main():
     # cmd_vel.angular.z = 4 * euler[2]
     
     cmd_pub.publish(cmd_vel)
+    
+    rate.sleep()
 
 if __name__ == "__main__":
   main()

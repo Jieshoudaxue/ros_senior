@@ -13,6 +13,7 @@ int main(int argc, char** argv) {
   while (nh.ok()) {
     tf::Transform tf_data;
     tf_data.setOrigin(tf::Vector3(0.1, 0.0, 0.2));
+    tf_data.setRotation(tf::Quaternion(0, 0, 0, 1));
 
     br.sendTransform(tf::StampedTransform(tf_data, ros::Time::now(), "base_link", "base_laser"));
 

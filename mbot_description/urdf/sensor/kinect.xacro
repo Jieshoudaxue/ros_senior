@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<robot name="mbot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="kinect" params="joint_x joint_y joint_z">
+    <joint name="kinect_joint" type="fixed">
+      <origin xyz="${joint_x} ${joint_y} ${joint_z}" rpy="0 0 0" />
+      <parent link="base_link"/>
+      <child link="kinect_link" />    
+    </joint>
+
+    <link name="kinect_link">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 1.5708" />
+        <geometry>
+          <mesh filename="package://mbot_description/meshes/kinect.dae" />
+        </geometry>
+      </visual>
+    </link>
+  </xacro:macro>
+
+</robot>

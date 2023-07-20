@@ -1,0 +1,29 @@
+digraph G {
+node [shape=box];
+"base_link" [label="base_link"];
+"back_caster_link" [label="back_caster_link"];
+"camera_link" [label="camera_link"];
+"front_caster_link" [label="front_caster_link"];
+"kinect_link" [label="kinect_link"];
+"left_wheel_link" [label="left_wheel_link"];
+"right_wheel_link" [label="right_wheel_link"];
+"stage_link" [label="stage_link"];
+"laser_link" [label="laser_link"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"base_link" -> "back_caster_joint" [label="xyz: -0.18 0 -0.095 \nrpy: 0 -0 0"]
+"back_caster_joint" -> "back_caster_link"
+"base_link" -> "camera_joint" [label="xyz: -0.17 0 0.1 \nrpy: 0 -0 0"]
+"camera_joint" -> "camera_link"
+"base_link" -> "front_caster_joint" [label="xyz: 0.18 0 -0.095 \nrpy: 0 -0 0"]
+"front_caster_joint" -> "front_caster_link"
+"base_link" -> "kinect_joint" [label="xyz: 0.15 0 0.11 \nrpy: 0 -0 0"]
+"kinect_joint" -> "kinect_link"
+"base_link" -> "left_wheel_joint" [label="xyz: 0 0.19 -0.05 \nrpy: 0 -0 0"]
+"left_wheel_joint" -> "left_wheel_link"
+"base_link" -> "right_wheel_joint" [label="xyz: 0 -0.19 -0.05 \nrpy: 0 -0 0"]
+"right_wheel_joint" -> "right_wheel_link"
+"base_link" -> "stage_joint" [label="xyz: 0 0 0.14 \nrpy: 0 -0 0"]
+"stage_joint" -> "stage_link"
+"stage_link" -> "laser_joint" [label="xyz: 0 0 0.085 \nrpy: 0 -0 0"]
+"laser_joint" -> "laser_link"
+}

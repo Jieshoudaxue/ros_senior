@@ -3,7 +3,7 @@
 
   <xacro:macro name="usb_camera" params="joint_x joint_y joint_z">
     <joint name="camera_joint" type="fixed">
-      <origin xyz="${-joint_x} ${joint_y} ${joint_z}" rpy="0 0 0" />
+      <origin xyz="${-joint_x} ${joint_y} ${joint_z}" rpy="0 0 ${M_PI}" />
       <parent link="base_link"/>
       <child link="camera_link" />    
     </joint>

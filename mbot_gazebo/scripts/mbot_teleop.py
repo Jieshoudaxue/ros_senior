@@ -73,7 +73,6 @@ def main():
   try:
     print(g_msg)
     print("currently:\tspeed %s\tturn %s " % (speed,turn))
-    rate = rospy.Rate(20)
     while(1):
       key = getKey(settings)
       
@@ -138,7 +137,6 @@ def main():
       twist.angular.z = control_turn
       pub.publish(twist)
 
-      rate.sleep()
   except:
     print(e)
   finally:

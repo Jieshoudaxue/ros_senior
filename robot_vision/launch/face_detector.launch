@@ -18,4 +18,12 @@
     <param name="cascade_1" value="$(find robot_vision)/data/haar_detectors/haarcascade_frontalface_alt.xml" />
     <param name="cascade_2" value="$(find robot_vision)/data/haar_detectors/haarcascade_profileface.xml" />
   </node>
+
+  <node
+      pkg="rqt_image_view"
+      type="rqt_image_view"
+      name="rqt_image_view"
+      output="screen"
+  />
+
 </launch>

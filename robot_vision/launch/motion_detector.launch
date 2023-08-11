@@ -14,4 +14,12 @@
         threshold: 25
     </rosparam>
   </node>
+
+  <node
+      pkg="rqt_image_view"
+      type="rqt_image_view"
+      name="rqt_image_view"
+      output="screen"
+  />
+
 </launch>

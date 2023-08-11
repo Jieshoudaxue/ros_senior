@@ -63,7 +63,7 @@ def image_cb(msg, cv_bridge, haar_param, image_pub):
     if len(faces_result) > 0:
         for face in faces_result:
             x,y,w,h = face
-            cv2.rectangle()
+            cv2.rectangle(cv_image, (x, y), (x+w, y+h), haar_param.color, 2)
     else:
         print("%u: no face in current image" %rospy.get_time())
     

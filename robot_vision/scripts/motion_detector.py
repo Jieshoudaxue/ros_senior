@@ -39,7 +39,7 @@ def image_cb(msg, cv_bridge, detector_param, image_pub):
     
     for c in cnts:
       # 如果检测到的区域小于设置值，则忽略
-      if cv2.contourArea(c) < self.minArea:
+      if cv2.contourArea(c) < detector_param.minArea:
         continue
       
       # 在输出画面上框出识别到的物体

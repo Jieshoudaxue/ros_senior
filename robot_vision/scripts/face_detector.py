@@ -7,6 +7,7 @@ import numpy as np
 from functools import partial
 from cv_bridge import CvBridge, CvBridgeError
 from sensor_msgs.msg import Image, RegionOfInterest
+from geometry_msgs.msg import Twist
 
 class HaarParam:
     def __init__(self):
@@ -42,7 +43,33 @@ def detect_face(input_image, haar_param):
                                                     (haar_param.haar_minSize, haar_param.haar_maxSize))
     return faces
 
-def image_cb(msg, cv_bridge, haar_param, image_pub):
+def vel_control(x, y, w, h):
+    speed = 0.5
+    turn = 0.5
+    line_x = 0
+    th = 0
+    control_speed = 0
+    control_turn = 0
+    rospy.loginfo("x %d, y %d, w %d, h %d" %(x,y,w,h))
+    # face turn right 
+    if x <= 200:
+        th = -1
+    # face turn left
+    elif x > 320:
+        th = 1
+    if w < 220:
+        line_x = -1
+    elif w > 280:
+        line_x = 1
+    
+    control_speed = speed * line_x
+    control_turn = turn * th
+    return (control_speed, control_turn)
+
+def image_cb(msg, cv_bridge, haar_param, image_pub, cmd_pub):
+    control_speed = 0
+    control_turn = 0
+
     # 使用cv_bridge将ROS的图像数据转换成OpenCV的图像格式
     try:
         cv_image = cv_bridge.imgmsg_to_cv2(msg, "bgr8")
@@ -64,12 +91,25 @@ def image_cb(msg, cv_bridge, haar_param, image_pub):
         for face in faces_result:
             x,y,w,h = face
             cv2.rectangle(cv_image, (x, y), (x+w, y+h), haar_param.color, 2)
+
+            control_speed,control_turn = vel_control(x,y,w,h)
+            
+            # 创建并发布twist消息
+            twist = Twist()
+            twist.linear.x = control_speed; 
+            twist.linear.y = 0; 
+            twist.linear.z = 0
+            twist.angular.x = 0; 
+            twist.angular.y = 0; 
+            twist.angular.z = control_turn
+            cmd_pub.publish(twist)    
     else:
         print("%u: no face in current image" %rospy.get_time())
     
     # 将识别后的图像转换成ROS消息并发布
     image_pub.publish(cv_bridge.cv2_to_imgmsg(cv_image, "bgr8"))
-    
+
+
     
 def main():
     rospy.init_node("face_detector")
@@ -77,10 +117,11 @@ def main():
 
     bridge = CvBridge()
     image_pub = rospy.Publisher("/cv_bridge_image", Image, queue_size=1)
+    cmd_pub = rospy.Publisher('/cmd_vel', Twist, queue_size=5)
     
     haar_param = HaarParam()
     
-    bind_image_cb = partial(image_cb, cv_bridge=bridge, haar_param=haar_param, image_pub=image_pub)
+    bind_image_cb = partial(image_cb, cv_bridge=bridge, haar_param=haar_param, image_pub=image_pub, cmd_pub=cmd_pub)
 
     rospy.Subscriber("/usb_cam/image_raw", Image, bind_image_cb)
 

@@ -56,7 +56,7 @@ def image_cb(msg, cv_bridge, yolov5_param, color_classes, image_pub):
         bounding_box.Class = box[-1]
         
         # 放入box队列中
-        bounding_boxes.append(bounding_box)
+        bounding_boxes.bounding_boxes.append(bounding_box)
         
         if box[-1] in color_classes.keys():
             color = color_classes[box[-1]]

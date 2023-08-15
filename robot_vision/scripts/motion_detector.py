@@ -14,7 +14,7 @@ class DetectorParam:
       self.threshold = rospy.get_param("~threshold", 25)
       self.firstFrame = None
       self.text = "Unoccupied"
-      
+
 def image_cb(msg, cv_bridge, detector_param, image_pub):
     # 使用cv_bridge将ROS的图像数据转换成OpenCV的图像格式
     try:
@@ -36,7 +36,7 @@ def image_cb(msg, cv_bridge, detector_param, image_pub):
     threshold = cv2.threshold(frameDelta, detector_param.threshold, 255, cv2.THRESH_BINARY)[1]
     threshold = cv2.dilate(threshold, None, iterations=2)
     cnts, hierarchy = cv2.findContours(threshold.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-    
+
     for c in cnts:
       # 如果检测到的区域小于设置值，则忽略
       if cv2.contourArea(c) < detector_param.minArea:
@@ -45,7 +45,7 @@ def image_cb(msg, cv_bridge, detector_param, image_pub):
       # 在输出画面上框出识别到的物体
       (x,y,w,h) = cv2.boundingRect(c)
       cv2.rectangle(frame, (x,y), (x+w, y+h), (50,255,50), 2)
-      detector_param.txt = "Occupied"
+      detector_param.text = "Occupied"  
       
     # 在输出画面上打当前状态和时间戳信息
     cv2.putText(frame, "Status: {}".format(detector_param.text), (10,20), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,255), 2)
@@ -59,7 +59,7 @@ def main():
 
     bridge = CvBridge()
     image_pub = rospy.Publisher("/cv_bridge_image", Image, queue_size=1)
-    
+
     detector_param = DetectorParam()
     
     bind_image_cb = partial(image_cb, cv_bridge=bridge, detector_param=detector_param, image_pub=image_pub)

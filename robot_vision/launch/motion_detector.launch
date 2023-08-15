@@ -11,7 +11,7 @@
   <node pkg="robot_vision" name="motion_detector" type="motion_detector.py" output="screen">
     <rosparam>
         minArea: 500
-        threshold: 25
+        threshold: 20
     </rosparam>
   </node>
 

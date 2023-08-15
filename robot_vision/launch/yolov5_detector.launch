@@ -1,0 +1,29 @@
+<launch>
+  <node name="usb_cam" pkg="usb_cam" type="usb_cam_node" output="screen" >
+    <param name="video_device" value="/dev/video0" />
+    <param name="image_width" value="640" />
+    <param name="image_height" value="480" />
+    <param name="pixel_format" value="yuyv" />
+    <param name="camera_frame_id" value="usb_cam" />
+    <param name="io_method" value="mmap"/>
+  </node>
+
+  <param name="yolov5_path"       value="$(find robot_vision)/yolov5"/>
+  <param name="use_cpu"           value="false" />
+
+  <!-- Start yolov5 and ros wrapper -->
+  <node pkg="robot_vision" name="yolov5_detector" type="yolov5_detector.py" output="screen" >
+    <param name="weight_path"       value="$(find robot_vision)/data/weights/yolov5s.pt"/>
+    <param name="image_topic"       value="/usb_cam/image_raw" />
+    <param name="pub_topic"         value="/yolov5/targets" />
+    <param name="conf"              value="0.3" />
+  </node>
+
+  <node
+      pkg="rqt_image_view"
+      type="rqt_image_view"
+      name="rqt_image_view"
+      output="screen"
+  />
+
+</launch>

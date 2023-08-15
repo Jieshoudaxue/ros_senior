@@ -1,0 +1,29 @@
+<launch>
+  <node name="usb_cam" pkg="usb_cam" type="usb_cam_node" output="screen" >
+    <param name="video_device" value="/dev/video0" />
+    <param name="image_width" value="640" />
+    <param name="image_height" value="480" />
+    <param name="pixel_format" value="yuyv" />
+    <param name="camera_frame_id" value="usb_cam" />
+    <param name="io_method" value="mmap"/>
+  </node>
+
+  <node pkg="robot_vision" name="face_detector" type="face_detector.py" output="screen">
+    <rosparam>
+        haar_scaleFactor: 1.2
+        haar_minNeighbors: 2
+        haar_minSize: 40
+        haar_maxSize: 60
+    </rosparam>
+    <param name="cascade_1" value="$(find robot_vision)/data/haar_detectors/haarcascade_frontalface_alt.xml" />
+    <param name="cascade_2" value="$(find robot_vision)/data/haar_detectors/haarcascade_profileface.xml" />
+  </node>
+
+  <node
+      pkg="rqt_image_view"
+      type="rqt_image_view"
+      name="rqt_image_view"
+      output="screen"
+  />
+
+</launch>

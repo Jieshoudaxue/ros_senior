@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-
 <launch>
   <node name="usb_cam" pkg="usb_cam" type="usb_cam_node" output="screen" >
     <param name="video_device" value="/dev/video0" />
@@ -10,9 +8,6 @@
     <param name="io_method" value="mmap"/>
   </node>
 
-
-  <!-- Load Parameter -->
-  
   <param name="yolov5_path"       value="$(find yolov5_ros)/yolov5"/>
   <param name="use_cpu"           value="false" />
 

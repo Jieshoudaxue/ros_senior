@@ -8,15 +8,15 @@
     <param name="io_method" value="mmap"/>
   </node>
 
-  <param name="yolov5_path"       value="$(find yolov5_ros)/yolov5"/>
+  <param name="yolov5_path"       value="$(find robot_vision)/yolov5"/>
   <param name="use_cpu"           value="false" />
 
   <!-- Start yolov5 and ros wrapper -->
-  <node pkg="yolov5_ros" type="yolo_v5.py" name="yolov5_ros" output="screen" >
-    <param name="weight_path"       value="$(find yolov5_ros)/weights/yolov5s.pt"/>
+  <node pkg="robot_vision" type="yolo_v5.py" name="yolov5_ros" output="screen" >
+    <param name="weight_path"       value="$(find robot_vision)/data/weights/yolov5s.pt"/>
     <param name="image_topic"       value="/usb_cam/image_raw" />
     <param name="pub_topic"         value="/yolov5/BoundingBoxes" />
-    <param name="camera_frame"       value="camera_color_frame"/>
+    <param name="camera_frame"       value="camera_frame"/>
     <param name="conf"              value="0.3" />
   </node>
 

@@ -8,7 +8,7 @@ import numpy as np
 
 from std_msgs.msg import Header
 from sensor_msgs.msg import Image
-from yolov5_ros.msg import BoundingBox, BoundingBoxes
+from robot_vision.msg import BoundingBox, BoundingBoxes
 
 
 class Yolo_Dect:
@@ -19,7 +19,7 @@ class Yolo_Dect:
 
         weight_path = rospy.get_param('~weight_path', '')
         image_topic = rospy.get_param(
-            '~image_topic', '/camera/color/image_raw')
+            '~image_topic', '/usb_cam/image_raw')
         pub_topic = rospy.get_param('~pub_topic', '/yolov5/BoundingBoxes')
         self.camera_frame = rospy.get_param('~camera_frame', '')
         conf = rospy.get_param('~conf', '0.5')

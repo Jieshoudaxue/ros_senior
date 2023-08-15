@@ -12,12 +12,18 @@
   <param name="use_cpu"           value="false" />
 
   <!-- Start yolov5 and ros wrapper -->
-  <node pkg="robot_vision" type="yolo_v5.py" name="yolov5_ros" output="screen" >
+  <node pkg="robot_vision" name="yolov5_detector" type="yolov5_detector.py" output="screen" >
     <param name="weight_path"       value="$(find robot_vision)/data/weights/yolov5s.pt"/>
     <param name="image_topic"       value="/usb_cam/image_raw" />
-    <param name="pub_topic"         value="/yolov5/BoundingBoxes" />
-    <param name="camera_frame"       value="camera_frame"/>
+    <param name="pub_topic"         value="/yolov5/targets" />
     <param name="conf"              value="0.3" />
   </node>
+
+  <node
+      pkg="rqt_image_view"
+      type="rqt_image_view"
+      name="rqt_image_view"
+      output="screen"
+  />
 
 </launch>

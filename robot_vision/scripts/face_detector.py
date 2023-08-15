@@ -81,7 +81,7 @@ def image_cb(msg, cv_bridge, haar_param, image_pub, cmd_pub):
     grey_image = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     
     # 创建平衡直方图，减少光线影响
-    grep_image = cv2.equalizeHist(grey_image)
+    grey_image = cv2.equalizeHist(grey_image)
     
     # 尝试检测人脸
     faces_result = detect_face(grey_image, haar_param)

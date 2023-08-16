@@ -23,6 +23,7 @@
       pkg="rqt_image_view"
       type="rqt_image_view"
       name="rqt_image_view"
+      launch-prefix="bash -c 'sleep 3; $0 $@'"
       output="screen"
   />
 

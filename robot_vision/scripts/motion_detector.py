@@ -25,7 +25,11 @@ def image_cb(msg, cv_bridge, detector_param, image_pub):
         
     # 创建灰度图像
     gray_image = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    cv2.imshow("ycao: gray image", gray_image)
+    cv2.waitKey(3)        
     gray_image = cv2.GaussianBlur(gray_image, (21,21), 0)
+    cv2.imshow("ycao: Gaussian blur image", gray_image)
+    cv2.waitKey(3)     
     
     # 使用两帧图像做比较，检测移动物体的区域
     if detector_param.firstFrame is None:
@@ -34,7 +38,11 @@ def image_cb(msg, cv_bridge, detector_param, image_pub):
       
     frameDelta = cv2.absdiff(detector_param.firstFrame, gray_image)
     threshold = cv2.threshold(frameDelta, detector_param.threshold, 255, cv2.THRESH_BINARY)[1]
+    cv2.imshow("ycao: THRESH BINARY image", threshold)
+    cv2.waitKey(3)    
     threshold = cv2.dilate(threshold, None, iterations=2)
+    cv2.imshow("ycao: dilate image", threshold)
+    cv2.waitKey(3)    
     cnts, hierarchy = cv2.findContours(threshold.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
     for c in cnts:

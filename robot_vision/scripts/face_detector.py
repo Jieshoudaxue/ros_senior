@@ -79,10 +79,14 @@ def image_cb(msg, cv_bridge, haar_param, image_pub, cmd_pub):
     
     # 创建灰度图像
     grey_image = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    
+    cv2.imshow("ycao: grey image", grey_image)
+    cv2.waitKey(3)
+
     # 创建平衡直方图，减少光线影响
     grey_image = cv2.equalizeHist(grey_image)
-    
+    cv2.imshow("ycao: histogram equalization image", grey_image)
+    cv2.waitKey(3)
+
     # 尝试检测人脸
     faces_result = detect_face(grey_image, haar_param)
     

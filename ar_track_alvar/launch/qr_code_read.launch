@@ -9,6 +9,9 @@
     <param name="io_method" value="mmap"/>
   </node>
 
+  <node pkg="tf" type="static_transform_publisher" name="world_to_cam" 
+        args="0 0 0.5 0 1.57 0 world usb_cam 10" />
+
   <arg name="marker_size" default="5" />
   <arg name="max_new_marker_error" default="0.08" />
   <arg name="max_track_error" default="0.2" />
@@ -25,5 +28,8 @@
       <remap from="camera_image"  to="$(arg cam_image_topic)" />
       <remap from="camera_info"   to="$(arg cam_info_topic)" />
   </node>
+
+  <!-- rviz view /-->
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find ar_track_alvar)/doc/rviz/qr_code_read.rviz"/>
 
 </launch>

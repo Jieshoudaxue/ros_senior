@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<package format="2">
+ <name>ar_track_alvar</name>
+ <version>0.7.1</version>
+ <description>
+  This package is a ROS wrapper for Alvar, an open source AR tag tracking library.
+ </description>
+ <author email="sniekum@cs.umass.edu">Scott Niekum</author>
+ <maintainer email="sniekum@cs.umass.edu">Scott Niekum</maintainer>
+ <maintainer email="130s@2000.jukuin.keio.ac.jp">Isaac I.Y. Saito</maintainer>
+ <license>LGPL-2.1</license>
+ <url type="website">http://ros.org/wiki/ar_track_alvar</url>
+
+ <buildtool_depend>catkin</buildtool_depend>
+
+ <build_depend>cmake_modules</build_depend>
+ <build_depend>message_generation</build_depend>
+ <exec_depend>message_runtime</exec_depend>
+
+ <depend>cv_bridge</depend>
+ <depend>dynamic_reconfigure</depend>
+ <depend>geometry_msgs</depend>
+ <depend>image_transport</depend>
+ <depend>pcl_ros</depend>
+ <depend>pcl_conversions</depend>
+ <depend>resource_retriever</depend>
+ <depend>roscpp</depend>
+ <depend>sensor_msgs</depend>
+ <depend>std_msgs</depend>
+ <depend>tf</depend>
+ <depend>tf2</depend>
+ <depend>tinyxml</depend>
+ <depend>visualization_msgs</depend>
+
+ <exec_depend>rospy</exec_depend>
+
+ <test_depend>rosbag</test_depend>
+ <test_depend>roslaunch</test_depend>
+ <test_depend>rostest</test_depend>
+
+</package>
+
+

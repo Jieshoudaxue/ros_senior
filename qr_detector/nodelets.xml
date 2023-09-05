@@ -1,0 +1,10 @@
+<library path="lib/libqr_detector_nodelet">
+
+    <class name="qr_detector/qr_detector_nodelet"
+           type="qr_detector::QrDetectorNodelet"
+           base_class_type="nodelet::Nodelet">
+        <description>
+            QR detector nodelet.
+        </description>
+    </class>
+</library>

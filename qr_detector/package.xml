@@ -1,0 +1,24 @@
+<package format="2">
+  <name>qr_detector</name>
+  <version>1.0.0</version>
+  <description>
+  QR codes detector based on zbar library (http://zbar.sourceforge.net)
+  </description>
+  <author email="drwiega.michal@gmail.com">Michal Drwiega (http://www.mdrwiega.com)</author>
+  <maintainer email="drwiega.michal@gmail.com">Michal Drwiega</maintainer>
+  <license>BSD</license>
+  <url type="website">http://ros.org/wiki/qr_detector</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>roscpp</depend>
+  <depend>nodelet</depend>
+  <depend>zbar</depend>
+  <depend>sensor_msgs</depend>
+  <depend>cv_bridge</depend>
+  <depend>image_transport</depend>
+
+  <export>
+    <nodelet plugin="${prefix}/nodelets.xml"/>
+  </export>
+</package>

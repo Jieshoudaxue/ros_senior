@@ -11,7 +11,8 @@
     <node pkg="nodelet"
           type="nodelet"
           name="qr_detector"
-          args="standalone qr_detector/qr_detector_nodelet">
+          output="screen"
+          args="standalone robot_vision/qr_detector_nodelet">
         <remap from="image" to="usb_cam/image_raw"/>
     </node>
 

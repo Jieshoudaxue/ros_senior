@@ -1,0 +1,9 @@
+<launch>
+  <node
+      pkg="robot_voice"
+      type="voice_controller"
+      name="voice_controller"
+      output="screen"
+  />
+
+</launch>

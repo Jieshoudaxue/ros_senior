@@ -13,8 +13,8 @@
 #include <signal.h>
 #include <sys/stat.h>
 #include <pthread.h>
-#include "ifly/formats.h"
-#include "ifly/linuxrec.h"
+#include "ifly_voice/formats.h"
+#include "ifly_voice/linuxrec.h"
 
 #define DBG_ON 1
 

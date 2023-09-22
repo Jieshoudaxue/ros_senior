@@ -4,12 +4,12 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
-#include "ifly/qisr.h"
-#include "ifly/qtts.h"
-#include "ifly/msp_cmn.h"
-#include "ifly/formats.h"
-#include "ifly/msp_errors.h"
-#include "ifly/speech_recognizer.h"
+#include "ifly_voice/qisr.h"
+#include "ifly_voice/qtts.h"
+#include "ifly_voice/msp_cmn.h"
+#include "ifly_voice/formats.h"
+#include "ifly_voice/msp_errors.h"
+#include "ifly_voice/speech_recognizer.h"
 #include <std_msgs/String.h>
 
 class Helper {

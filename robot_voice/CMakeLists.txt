@@ -136,8 +136,8 @@ include_directories(
 ## The recommended prefix ensures that target names across packages don't collide
 add_executable(voice_to_string 
   src/voice_to_string.cpp
-  ifly/speech_recognizer.c
-  ifly/linuxrec.c)
+  ifly_voice/speech_recognizer.c
+  ifly_voice/linuxrec.c)
 
 add_executable(robot_controller src/robot_controller.cpp)
 

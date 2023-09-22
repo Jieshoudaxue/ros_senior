@@ -10,11 +10,11 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
-#include "ifly/speech_recognizer.h"
-#include "ifly/qisr.h"
-#include "ifly/msp_cmn.h"
-#include "ifly/msp_errors.h"
-#include "ifly/linuxrec.h"
+#include "ifly_voice/speech_recognizer.h"
+#include "ifly_voice/qisr.h"
+#include "ifly_voice/msp_cmn.h"
+#include "ifly_voice/msp_errors.h"
+#include "ifly_voice/linuxrec.h"
 
 
 #define SR_DBGON 1

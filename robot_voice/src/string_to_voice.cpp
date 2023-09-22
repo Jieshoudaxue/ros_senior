@@ -1,3 +1,4 @@
+#include <ros/ros.h>
 #include <stdio.h>
 #include <signal.h>
 #include <stdlib.h>
@@ -9,9 +10,7 @@
 #include "ifly/formats.h"
 #include "ifly/msp_errors.h"
 #include "ifly/speech_recognizer.h"
-
-#include <ros/ros.h>
-#include <geometry_msgs/Twist.h>
+#include <robot_voice/StringToVoice.h>
 
 
 class Helper {
@@ -23,114 +22,9 @@ public:
 };
 
 
-class VoiceDetector {
-public:
-  VoiceDetector() {
-    ROS_INFO("voice detector Constructor");
-  }
-  ~VoiceDetector() {
-    ROS_INFO("voice detector Destructor ");
-  }
-
-  int Init() {
-    int ret = MSP_SUCCESS;
-    ret = MSPLogin(NULL, NULL, login_params_.c_str());
-    if (MSP_SUCCESS != ret)	{
-      ROS_ERROR("MSPLogin failed , Error code %d", ret);
-      MSPLogout(); // Logout...
-      return -1;
-    }    
-
-    ROS_INFO("MSP Login for update, waiting for seconds...");
-
-    return 0;
-  }
-
-  static void JoinTxt(const char *result, char is_last) {
-    if (result) {
-      std::string slice_txt = result;
-
-      VoiceDetector::voice_txt_ += slice_txt;
-    }
-    if (is_last) {
-      printf("voice txt : %s\n", VoiceDetector::voice_txt_.c_str());
-    }
-  }
-
-  static void InitSpeech() {
-    VoiceDetector::voice_txt_ = "";
-
-    printf("Start Listening...\n");
-  }
-
-  static void EndSpeech(int reason) {
-    if (reason == END_REASON_VAD_DETECT) {
-      printf("\nSpeaking done \n");
-    } else {
-      printf("\nRecognizer error %d\n", reason);
-    }
-  }
-
-  int SpeechOnce() {
-    int ret;
-    int i = 0;
-
-    struct speech_rec iat;
-
-    struct speech_rec_notifier recnotifier = {
-      JoinTxt,
-      InitSpeech,
-      EndSpeech
-    };
-
-    ret = sr_init(&iat, session_begin_params_.c_str(), SR_MIC, &recnotifier);
-    if (ret) {
-      ROS_ERROR("speech recognizer init failed");
-      return -1;
-    }
-
-    ret = sr_start_listening(&iat);
-    if (ret) {
-      printf("start listen failed %d\n", ret);
-    }
-
-    /* demo 15 seconds recording */
-    sleep(15);
-
-    ret = sr_stop_listening(&iat);
-    if (ret) {
-      printf("stop listening failed %d\n", ret);
-    }
-
-    sr_uninit(&iat);
-
-    return 0;
-  }
-
-  static std::string get_voice_txt_() {
-    return voice_txt_;
-  }
-
-
-private:
-	const std::string login_params_ = "appid = bb839ccf, work_dir = .";
-	const std::string session_begin_params_ =
-		"sub = iat, domain = iat, language = zh_cn, "
-		"accent = mandarin, sample_rate = 16000, "
-		"result_type = plain, result_encoding = utf8";
-
-  const uint32_t	BufferSize = 4096;
-  uint64_t g_buffersize = BufferSize;
-  static std::string voice_txt_;
-};
-
-std::string VoiceDetector::voice_txt_ = "";
-
 class VoiceResponse {
 public:
-  VoiceResponse() {}
-  VoiceResponse(ros::NodeHandle& nh) {
-    cmd_pub_ = nh.advertise<geometry_msgs::Twist>("turtle1/cmd_vel", 1000);
+  VoiceResponse() {
     ROS_INFO("voice Response Constructor");
   }
 
@@ -248,75 +142,27 @@ public:
     return 0;
   }
 
-  int AnswerVoice(std::string& voice_txt) {
+  bool Speeking(robot_voice::StringToVoice::Request &req, robot_voice::StringToVoice::Response &resp) {
     int ret = -1;
-    std::string answer_txt = "";
-
-    if (voice_txt.find("前") != std::string::npos) {
-      answer_txt = "小车请向前跑";
-
-      ret = ProcessTxt(answer_txt);
-      if (MSP_SUCCESS != ret) {
-        ROS_ERROR("AnswerVoice failed, error code: %d", ret);
-        return -1;
-      }
-
-      SendTopic(0.3, 0);
-    } else if (voice_txt.find("后") != std::string::npos) {
-      answer_txt = "小车请向后倒";
-
-      ret = ProcessTxt(answer_txt);
-      if (MSP_SUCCESS != ret) {
-        ROS_ERROR("AnswerVoice failed, error code: %d", ret);
-        return -1;
-      }
-
-      SendTopic(-0.3, 0);
-    } else if (voice_txt.find("左") != std::string::npos) {
-      answer_txt = "小车请向左转";
-
-      ret = ProcessTxt(answer_txt);
-      if (MSP_SUCCESS != ret) {
-        ROS_ERROR("AnswerVoice failed, error code: %d", ret);
-        return -1;
-      }
-
-      SendTopic(0, 0.3);
-    } else if (voice_txt.find("右") != std::string::npos) {
-      answer_txt = "小车请向右转";
-
-      ret = ProcessTxt(answer_txt);
-      if (MSP_SUCCESS != ret) {
-        ROS_ERROR("AnswerVoice failed, error code: %d", ret);
-        return -1;
-      }
-
-      SendTopic(0, -0.3);
-    } else if (voice_txt.find("转") != std::string::npos) {
-      answer_txt = "小车请打转";
-
-      ret = ProcessTxt(answer_txt);
-      if (MSP_SUCCESS != ret) {
-        ROS_ERROR("AnswerVoice failed, error code: %d", ret);
-        return -1;
-      }
-
-      SendTopic(0.3, 0.3);
+    ret = ProcessTxt(req.data);
+    if (MSP_SUCCESS != ret) {
+      ROS_ERROR("AnswerVoice failed, error code: %d", ret);
+      resp.success = false;
+      return false;
+    } else {
+      resp.success = true;
     }
 
-
-    return 0;
+    return resp.success;
   }
 
-  void SendTopic(float linear_x, float angular_z) {
-    geometry_msgs::Twist msg;
-    msg.linear.x = linear_x;
-    msg.angular.z = angular_z;
-    cmd_pub_.publish(msg);
+  void Start(ros::NodeHandle& nh) {
+    server_ = nh.advertiseService("str2voice", &VoiceResponse::Speeking, this);
+    ROS_INFO("voice Response Start");
   }
 
 private:
-  ros::Publisher cmd_pub_;
+  ros::ServiceServer server_;
 
 	const std::string session_begin_params_ = 
     "voice_name = xiaoyan, text_encoding = utf8, "
@@ -346,41 +192,17 @@ private:
 
 };
 
+int main(int argc, char ** argv) {
+    ros::init(argc, argv, "string_to_voice");
+    ros::NodeHandle nh;
 
-int main(int argc, char* argv[]) {
-  int ret = 0;
-  ros::init(argc, argv, "voice_controller");
-  ros::NodeHandle nh;
-
-  if (signal(SIGINT, Helper::SignalHandler) == SIG_ERR) {
-    return -1;
-  }
-
-  printf("this is a voice controller app for robot, you can say: 向前, 向后, 向左, 向右, 转圈, 结束\n");
-  VoiceResponse vr(nh);
-  VoiceDetector vd;
-  ret = vd.Init();
-  if (ret < 0) {
-    return -1;
-  }
-  
-  while (1) {
-    ret = vd.SpeechOnce();
-    if (ret < 0) {
+    if (signal(SIGINT, Helper::SignalHandler) == SIG_ERR) {
       return -1;
     }
 
-    std::string voice_txt = VoiceDetector::get_voice_txt_();
-    if (voice_txt == "") {
-      continue;
-    } else if (voice_txt.find("结束") != std::string::npos) {
-      break;
-    }
+    VoiceResponse vr;
+    vr.Start(nh);
 
-    vr.AnswerVoice(voice_txt);
-  }
-
-  ros::spin();
-
-  return 0;
+    ros::spin();
+    return 0;
 }

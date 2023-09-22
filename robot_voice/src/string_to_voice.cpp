@@ -22,15 +22,30 @@ public:
 };
 
 
-class VoiceResponse {
+class VoiceCreator {
 public:
-  VoiceResponse() {
+  VoiceCreator() {
     ROS_INFO("voice Response Constructor");
   }
 
-  ~VoiceResponse() {
+  ~VoiceCreator() {
     ROS_INFO("voice Response Destructor ");
   }
+
+  int Init() {
+    int ret = MSP_SUCCESS;
+    ret = MSPLogin(NULL, NULL, login_params_.c_str());
+    if (MSP_SUCCESS != ret)	{
+      ROS_ERROR("MSPLogin failed , Error code %d", ret);
+      MSPLogout(); // Logout...
+      return -1;
+    }    
+
+    ROS_INFO("VoiceCreator MSP Login for update, waiting for seconds...");
+
+    return 0;
+  }
+
 
   int ProcessTxt(std::string& txt) {
     int          ret          = -1;
@@ -158,12 +173,14 @@ public:
   }
 
   void Start(ros::NodeHandle& nh) {
-    server_ = nh.advertiseService("str2voice", &VoiceResponse::Speeking, this);
+    server_ = nh.advertiseService("str2voice", &VoiceCreator::Speeking, this);
     ROS_INFO("voice Response Start");
   }
 
 private:
   ros::ServiceServer server_;
+
+	const std::string login_params_ = "appid = bb839ccf, work_dir = .";
 
 	const std::string session_begin_params_ = 
     "voice_name = xiaoyan, text_encoding = utf8, "
@@ -194,16 +211,22 @@ private:
 };
 
 int main(int argc, char ** argv) {
-    ros::init(argc, argv, "string_to_voice");
-    ros::NodeHandle nh;
+  int ret = 0;
+  ros::init(argc, argv, "string_to_voice");
+  ros::NodeHandle nh;
 
-    if (signal(SIGINT, Helper::SignalHandler) == SIG_ERR) {
-      return -1;
-    }
+  if (signal(SIGINT, Helper::SignalHandler) == SIG_ERR) {
+    return -1;
+  }
 
-    VoiceResponse vr;
-    vr.Start(nh);
+  VoiceCreator vc;
+  ret = vc.Init();
+  if (ret < 0) {
+    return -1;
+  }
 
-    ros::spin();
-    return 0;
+  vc.Start(nh);
+
+  ros::spin();
+  return 0;
 }

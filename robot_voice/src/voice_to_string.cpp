@@ -38,7 +38,7 @@ public:
       return -1;
     }    
 
-    ROS_INFO("MSP Login for update, waiting for seconds...");
+    ROS_INFO("VoiceDetector MSP Login for update, waiting for seconds...");
 
     return 0;
   }
@@ -110,8 +110,6 @@ public:
 
 
 private:
-
-
 	const std::string login_params_ = "appid = bb839ccf, work_dir = .";
 	const std::string session_begin_params_ =
 		"sub = iat, domain = iat, language = zh_cn, "

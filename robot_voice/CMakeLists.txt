@@ -12,6 +12,7 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
   geometry_msgs
+  message_generation
 )
 
 ## System dependencies are found with CMake's conventions
@@ -55,11 +56,10 @@ find_package(catkin REQUIRED COMPONENTS
 # )
 
 ## Generate services in the 'srv' folder
-# add_service_files(
-#   FILES
-#   Service1.srv
-#   Service2.srv
-# )
+add_service_files(
+  FILES
+  StringToVoice.srv
+)
 
 ## Generate actions in the 'action' folder
 # add_action_files(
@@ -69,10 +69,10 @@ find_package(catkin REQUIRED COMPONENTS
 # )
 
 ## Generate added messages and services with any dependencies listed here
-# generate_messages(
-#   DEPENDENCIES
-#   std_msgs
-# )
+generate_messages(
+  DEPENDENCIES
+  std_msgs
+)
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -106,7 +106,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES robot_voice
-#  CATKIN_DEPENDS roscpp rospy std_msgs
+  CATKIN_DEPENDS message_runtime roscpp rospy std_msgs
 #  DEPENDS system_lib
 )
 
@@ -134,11 +134,14 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-add_executable(voice_controller 
-  src/voice_controller.cpp
+add_executable(voice_to_string 
+  src/voice_to_string.cpp
   ifly/speech_recognizer.c
   ifly/linuxrec.c)
 
+add_executable(robot_controller src/robot_controller.cpp)
+
+add_executable(string_to_voice src/string_to_voice.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -155,10 +158,21 @@ add_executable(voice_controller
 #   ${catkin_LIBRARIES}
 # )
 
-target_link_libraries(voice_controller
-   ${catkin_LIBRARIES} 
-   libmsc.so -ldl -lpthread -lm -lrt -lasound
- )
+target_link_libraries(voice_to_string
+  ${catkin_LIBRARIES} 
+  libmsc.so -ldl -lpthread -lm -lrt -lasound
+)
+
+add_dependencies(robot_controller ${PROJECT_NAME}_generate_messages_cpp)
+target_link_libraries(robot_controller
+  ${catkin_LIBRARIES} 
+)
+
+add_dependencies(string_to_voice ${PROJECT_NAME}_generate_messages_cpp)
+target_link_libraries(string_to_voice
+  ${catkin_LIBRARIES} 
+  libmsc.so -ldl -pthread
+)
 
 #############
 ## Install ##

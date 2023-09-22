@@ -137,6 +137,7 @@ public:
       ROS_ERROR("play /tmp/tts_sample.wav failed");
       return -1;
     }
+    sleep(1);
     pclose(fp);
 
     return 0;

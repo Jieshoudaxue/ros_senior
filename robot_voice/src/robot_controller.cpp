@@ -13,11 +13,11 @@
 class RobotController {
 public:
   RobotController() {
-    ROS_INFO("robot controller Constructor");
+    ROS_INFO("RobotController Constructor");
   }
 
   ~RobotController() {
-    ROS_INFO("robot controller Destructor");
+    ROS_INFO("RobotController Destructor");
   }
 
   int Init(ros::NodeHandle& nh) {
@@ -47,7 +47,6 @@ public:
 
     int ret = -1;
     std::string voice_txt = msg->data;
-    std::string answer_txt = "";
 
     if (voice_txt.find("前") != std::string::npos) {
       ToDownstream("小车请向前跑", 0.3, 0);

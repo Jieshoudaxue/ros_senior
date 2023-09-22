@@ -25,11 +25,11 @@ public:
 class VoiceCreator {
 public:
   VoiceCreator() {
-    ROS_INFO("voice Response Constructor");
+    ROS_INFO("VoiceCreator Constructor");
   }
 
   ~VoiceCreator() {
-    ROS_INFO("voice Response Destructor ");
+    ROS_INFO("VoiceCreator Destructor ");
   }
 
   int Init() {
@@ -174,7 +174,6 @@ public:
 
   void Start(ros::NodeHandle& nh) {
     server_ = nh.advertiseService("str2voice", &VoiceCreator::Speeking, this);
-    ROS_INFO("voice Response Start");
   }
 
 private:
@@ -212,7 +211,7 @@ private:
 
 int main(int argc, char ** argv) {
   int ret = 0;
-  ros::init(argc, argv, "string_to_voice");
+  ros::init(argc, argv, "voice_creator");
   ros::NodeHandle nh;
 
   if (signal(SIGINT, Helper::SignalHandler) == SIG_ERR) {

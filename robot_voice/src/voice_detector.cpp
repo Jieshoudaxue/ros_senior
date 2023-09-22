@@ -23,10 +23,10 @@ public:
 class VoiceDetector {
 public:
   VoiceDetector() {
-    ROS_INFO("voice detector Constructor");
+    ROS_INFO("VoiceDetector Constructor");
   }
   ~VoiceDetector() {
-    ROS_INFO("voice detector Destructor ");
+    ROS_INFO("VoiceDetector Destructor");
   }
 
   int Init() {
@@ -126,7 +126,7 @@ std::string VoiceDetector::voice_txt_ = "";
 
 int main(int argc, char* argv[]) {
   int ret = 0;
-  ros::init(argc, argv, "voice_to_string");
+  ros::init(argc, argv, "voice_detector");
   ros::NodeHandle nh;
   ros::Publisher str_pub_ = nh.advertise<std_msgs::String>("/human/chatter", 1000);
 

@@ -21,7 +21,7 @@ public:
   }
 
   int Init(ros::NodeHandle& nh) {
-    cmd_pub_ = nh.advertise<geometry_msgs::Twist>("turtle1/cmd_vel", 1000);
+    cmd_pub_ = nh.advertise<geometry_msgs::Twist>("/cmd_vel", 1000);
     client_ = nh.serviceClient<robot_voice::StringToVoice>("str2voice");
     return 0;
   }
@@ -33,6 +33,7 @@ public:
 
     bool ok = client_.call(req, resp);
     if (ok) {
+      printf("send str2voice service success: %s\n", req.data.c_str());
       geometry_msgs::Twist msg;
       msg.linear.x = linear_x;
       msg.angular.z = angular_z;
@@ -62,7 +63,7 @@ public:
   }
 
   void Start(ros::NodeHandle& nh) {
-    chatter_sub_ = nh.subscribe("chatter", 1000, &RobotController::ChatterCallbback, this);
+    chatter_sub_ = nh.subscribe("/human/chatter", 1000, &RobotController::ChatterCallbback, this);
   }
 
 private:

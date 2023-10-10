@@ -27,6 +27,7 @@ public:
   int SendRequest(std::string& ask_str) {
     // clear answer_str_
     IflySpark::answer_str_ = "";
+    IflySpark::is_over_ = false;
     //请求参数配置
     AIKIT::ChatParam* config = AIKIT::ChatParam::builder();
     config->uid("xxxid")
@@ -54,6 +55,7 @@ public:
     if(handle!=nullptr){
         std::cout<<"chatID:"<<((UsrCtx*)handle->usrContext)->chatID<<", ";
     }
+    
     std::string slice_txt = content;
     IflySpark::answer_str_ += slice_txt;
   }
@@ -87,11 +89,11 @@ public:
   }
 
   static std::string get_answer_str() {
-    if (IflySpark::is_over_ == true && IflySpark::answer_str_ != "") {
-      return answer_str_;
-    } else {
-      return "";
+    while (IflySpark::is_over_ == false || IflySpark::answer_str_ == "") {
+      sleep(1); 
     }
+
+    return answer_str_;
   }
 
 private:
@@ -133,14 +135,14 @@ public:
 
     bool ok = client_.call(req, resp);
     if (ok) {
-      ROS_INFO("send str2voice service success ");
+      printf("send str2voice service success: %s\n", req.data.c_str());
     } else {
-      ROS_ERROR("failed to send str2voice service");
+      printf("failed to send str2voice service\n");
     }
   }
 
   void ChatterCallbback(const std_msgs::String::ConstPtr &msg) {
-    ROS_INFO("i received: %s", msg->data.c_str());
+    printf("i received: %s\n", msg->data.c_str());
 
     int ret = -1;
     std::string voice_txt = msg->data;
@@ -150,11 +152,13 @@ public:
     answer_txt = IflySpark::get_answer_str();
     if (answer_txt != "") {
       ToDownstream(answer_txt);
+      printf("answer_txt = %s\n", answer_txt.c_str());
     }
+    
   }
 
   void Start(ros::NodeHandle& nh) {
-    chatter_sub_ = nh.subscribe("chatter", 1000, &RobotTalker::ChatterCallbback, this);
+    chatter_sub_ = nh.subscribe("/human/chatter", 1000, &RobotTalker::ChatterCallbback, this);
   }
 
 private:

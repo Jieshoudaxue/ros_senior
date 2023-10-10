@@ -57,7 +57,7 @@ public:
   static void InitSpeech() {
     VoiceDetector::voice_txt_ = "";
 
-    printf("Start Listening...\n");
+    printf("clear cache, start Listening...\n");
   }
 
   static void EndSpeech(int reason) {
@@ -92,7 +92,7 @@ public:
     }
 
     /* demo 15 seconds recording */
-    sleep(15);
+    sleep(10);
 
     ret = sr_stop_listening(&iat);
     if (ret) {
@@ -148,6 +148,7 @@ int main(int argc, char* argv[]) {
 
     std::string voice_txt = VoiceDetector::get_voice_txt_();
     if (voice_txt == "") {
+      printf("voice_txt is empty\n");
       continue;
     } else if (voice_txt.find("结束") != std::string::npos) {
       break;
@@ -156,6 +157,8 @@ int main(int argc, char* argv[]) {
     std_msgs::String msg;
     msg.data = voice_txt;
     str_pub_.publish(msg);
+
+    sleep(10);
   }
 
   ros::spin();

@@ -33,18 +33,21 @@ public:
 
     bool ok = client_.call(req, resp);
     if (ok) {
-      printf("send str2voice service success: %s\n", req.data.c_str());
-      geometry_msgs::Twist msg;
-      msg.linear.x = linear_x;
-      msg.angular.z = angular_z;
-      cmd_pub_.publish(msg);
+      printf("send str2voice service success: %s, and pub cmd_vel\n", req.data.c_str());
+      for (int i = 0; i < 10; i ++) {
+        geometry_msgs::Twist msg;
+        msg.linear.x = linear_x;
+        msg.angular.z = angular_z;
+        cmd_pub_.publish(msg);
+        sleep(0.5);
+      }
     } else {
       ROS_ERROR("failed to send str2voice service");
     }
   }
 
   void ChatterCallbback(const std_msgs::String::ConstPtr &msg) {
-    ROS_INFO("i received: %s", msg->data.c_str());
+    printf("i received: %s\n", msg->data.c_str());
 
     int ret = -1;
     std::string voice_txt = msg->data;

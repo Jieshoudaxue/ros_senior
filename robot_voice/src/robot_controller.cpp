@@ -46,11 +46,10 @@ public:
     }
   }
 
-  void ChatterCallbback(const std_msgs::String::ConstPtr &msg) {
-    printf("i received: %s\n", msg->data.c_str());
+  bool ChatterCallbback(robot_voice::StringToVoice::Request &req, robot_voice::StringToVoice::Response &resp) {
+    printf("i received: %s\n", req.data.c_str());
 
-    int ret = -1;
-    std::string voice_txt = msg->data;
+    std::string voice_txt = req.data;
 
     if (voice_txt.find("前") != std::string::npos) {
       ToDownstream("小车请向前跑", 0.3, 0);
@@ -63,14 +62,18 @@ public:
     } else if (voice_txt.find("转") != std::string::npos) {
       ToDownstream("小车请向打转", 0.3, -0.3);
     }
+
+    resp.success = true;
+
+    return resp.success;
   }
 
   void Start(ros::NodeHandle& nh) {
-    chatter_sub_ = nh.subscribe("/human/chatter", 1000, &RobotController::ChatterCallbback, this);
+    chatter_server_ = nh.advertiseService("human_chatter", &RobotController::ChatterCallbback, this);
   }
 
 private:
-  ros::Subscriber chatter_sub_;
+  ros::ServiceServer chatter_server_;
   ros::Publisher cmd_pub_;
   ros::ServiceClient client_;
 };

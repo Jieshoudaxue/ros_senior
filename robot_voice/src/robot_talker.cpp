@@ -141,11 +141,10 @@ public:
     }
   }
 
-  void ChatterCallbback(const std_msgs::String::ConstPtr &msg) {
-    printf("i received: %s\n", msg->data.c_str());
+  bool ChatterCallbback(robot_voice::StringToVoice::Request &req, robot_voice::StringToVoice::Response &resp) {
+    printf("i received: %s\n", req.data.c_str());
 
-    int ret = -1;
-    std::string voice_txt = msg->data;
+    std::string voice_txt = req.data;
     std::string answer_txt = "";
 
     robot_talker_.SendRequest(voice_txt);
@@ -154,15 +153,17 @@ public:
       ToDownstream(answer_txt);
       printf("answer_txt = %s\n", answer_txt.c_str());
     }
-    
+
+    resp.success = true;
+    return resp.success;
   }
 
   void Start(ros::NodeHandle& nh) {
-    chatter_sub_ = nh.subscribe("/human/chatter", 1000, &RobotTalker::ChatterCallbback, this);
+    chatter_server_ = nh.advertiseService("human_chatter", &RobotTalker::ChatterCallbback, this);
   }
 
 private:
-  ros::Subscriber chatter_sub_;
+  ros::ServiceServer chatter_server_;
   ros::ServiceClient client_;
   IflySpark robot_talker_;
 };

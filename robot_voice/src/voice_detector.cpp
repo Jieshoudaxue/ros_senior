@@ -11,6 +11,7 @@
 #include "ifly_voice/msp_errors.h"
 #include "ifly_voice/speech_recognizer.h"
 #include <std_msgs/String.h>
+#include <robot_voice/StringToVoice.h>
 
 class Helper {
 public:
@@ -128,7 +129,7 @@ int main(int argc, char* argv[]) {
   int ret = 0;
   ros::init(argc, argv, "voice_detector");
   ros::NodeHandle nh;
-  ros::Publisher str_pub_ = nh.advertise<std_msgs::String>("/human/chatter", 1000);
+  ros::ServiceClient client_ = nh.serviceClient<robot_voice::StringToVoice>("human_chatter");
 
   if (signal(SIGINT, Helper::SignalHandler) == SIG_ERR) {
     return -1;
@@ -148,17 +149,22 @@ int main(int argc, char* argv[]) {
 
     std::string voice_txt = VoiceDetector::get_voice_txt_();
     if (voice_txt == "") {
-      printf("voice_txt is empty\n");
+      printf("voice_txt is empty, do not send chatter\n");
       continue;
     } else if (voice_txt.find("结束") != std::string::npos) {
       break;
     }
 
-    std_msgs::String msg;
-    msg.data = voice_txt;
-    str_pub_.publish(msg);
+    robot_voice::StringToVoice::Request req;
+    robot_voice::StringToVoice::Response resp;
+    req.data = voice_txt;
 
-    sleep(10);
+    bool ok = client_.call(req, resp);
+    if (ok) {
+      printf("send human_chatter service success: %s\n", req.data.c_str());
+    } else {
+      printf("failed to send human_chatter service\n");
+    }
   }
 
   ros::spin();

@@ -60,7 +60,7 @@ public:
     } else if (voice_txt.find("右") != std::string::npos) {
       ToDownstream("小车请向右转", 0, -0.3);
     } else if (voice_txt.find("转") != std::string::npos) {
-      ToDownstream("小车请向打转", 0.3, -0.3);
+      ToDownstream("小车请打转", 0.3, -0.3);
     }
 
     resp.success = true;

@@ -1,0 +1,26 @@
+<launch>
+  <node
+      pkg="robot_voice"
+      type="voice_creator"
+      name="voice_creator"
+      output="screen"
+  />
+
+
+  <node
+      pkg="robot_voice"
+      type="robot_talker"
+      name="robot_talker"
+      launch-prefix="bash -c 'sleep 5; $0 $@'"
+      output="screen"
+  />
+
+  <node
+      pkg="robot_voice"
+      type="voice_detector"
+      name="voice_detector"
+      launch-prefix="bash -c 'sleep 7; $0 $@'"
+      output="screen"
+  />
+
+</launch>

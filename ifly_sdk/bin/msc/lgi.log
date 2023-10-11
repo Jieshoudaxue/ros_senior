@@ -1,0 +1,859 @@
+============================================================
+Time  2023/09/19 09:57:48 320 
+============================================================
+[2023/09/19 09:57:48 320] lgi        684  SYS_MSG_LOAD  
+[2023/09/19 09:57:48 321] lgi        706  SYS_MSG_REGCB  msp_status_cb  func(ec013250) 
+[2023/09/19 09:57:48 321] lgi        298  LGI_MSG_INIT  
+[2023/09/19 09:57:48 321] lgi        305  lgi  lgi_  268436457  1573471853  
+[2023/09/19 09:57:48 321] lgi        347  work_dir  .  
+[2023/09/19 09:57:48 321] lgi        403  token:  nil  
+[2023/09/19 09:57:48 321] lgi        476  msc cver : 5.0.44.1288  
+[2023/09/19 09:57:48 321] lgi        519  ns_enable=  1  
+[2023/09/19 09:57:48 321] lgi        531  prot_ver=1  
+[2023/09/19 09:57:48 321] lgi        542  prot_type=tcp  
+[2023/09/19 09:57:48 321] lgi        693  SYS_MSG_UNLOAD  go bg!  
+[2023/09/19 09:58:02 451] lgi        598  LGI_MSG_START, caller =  cloud_cisr1P1HHBHIaEm2hy0cNaa0I6WKftiQPkC  
+[2023/09/19 09:58:02 451] lgi        604  lgistat =   0  
+[2023/09/19 09:58:02 451] lgi        630  lgi_auth_id =  nil  
+[2023/09/19 09:58:02 451] transport  645  paramkvsport is   0  
+[2023/09/19 09:58:02 451] transport  657  ns_enable=  1  
+[2023/09/19 09:58:02 451] transport  659  2017-08--24 is_ns_need_close =   nil  
+[2023/09/19 09:58:02 451] transport  665  net.nettype=  unknown  
+[2023/09/19 09:58:02 451] transport  675  url.full=  nil  
+[2023/09/19 09:58:02 451] transport  680  server_url_host=, server_url_port=, server_url_path=  open.xf-yun.com  nil  /msp.do  
+[2023/09/19 09:58:02 452] transport  907  net type:  unknown  
+[2023/09/19 09:58:02 452] transport  908  net operator:  def  
+[2023/09/19 09:58:02 452] transport  909  use proxy:  false  
+[2023/09/19 09:58:02 452] lgi        277  [session] send lgi request  
+[2023/09/19 09:58:02 452] transport  1105 session.domain=  open.xf-yun.com  
+[2023/09/19 09:58:02 452] transport  1106 url.host=  open.xf-yun.com  
+[2023/09/19 09:58:02 452] transport  1083 NAMESERVER START  
+[2023/09/19 09:58:02 452] transport  1086 name =   ath  
+[2023/09/19 09:58:02 452] ns         634  ntt=  unknown  
+[2023/09/19 09:58:02 452] transport  1089 trans,ns_inprog =  0  
+[2023/09/19 09:58:02 452] ns         582  name server start  
+[2023/09/19 09:58:02 452] ns         588  ns_sub =   ath  
+[2023/09/19 09:58:02 452] ns         596  ns_host =   open.xf-yun.com  
+[2023/09/19 09:58:02 452] ns         475  ns_host=  open.xf-yun.com  
+[2023/09/19 09:58:02 452] ns         555  net_type =  standard  
+[2023/09/19 09:58:02 452] ns         556  cmwapascmnet =  
+[2023/09/19 09:58:02 452] ns         557  uniwapasuninet =  
+[2023/09/19 09:58:02 452] ns         558  ctwapasctnet =  
+[2023/09/19 09:58:02 452] ns         576  host=  hdns.xf-yun.com  
+[2023/09/19 09:58:02 452] network    263  gethostbyname  hdns.xf-yun.com  ns1  
+[2023/09/19 09:58:02 452] lgi        244  lver:  nil  
+[2023/09/19 09:58:02 452] lgi        249  cfg_ver:  nil  
+[2023/09/19 09:58:02 452] transport  1860 transport_obj.send | in  
+[2023/09/19 09:58:02 452] transport  1866 self.msg_flag_q  table(ec016dc0) 
+[2023/09/19 09:58:02 452] transport  1867 self.msg_q  table(ec06ffd0) 
+[2023/09/19 09:58:02 452] transport  1799 transport_obj.try2send | in  
+[2023/09/19 09:58:02 452] transport  1800 self.soc  nil  
+[2023/09/19 09:58:02 452] transport  1801 self.connected  false  
+[2023/09/19 09:58:02 452] transport  1802 self.latesterr  0  
+[2023/09/19 09:58:02 452] transport  1873 transport_obj.send | out  
+[2023/09/19 09:58:02 465] network    245  dns resp  0  ns1  
+[2023/09/19 09:58:02 465] ns         422  ns dns ok  101.200.180.128  
+[2023/09/19 09:58:02 465] ns         202  iplist not avail  
+[2023/09/19 09:58:02 465] ns         429  is_voicecloud_ip=  0  
+[2023/09/19 09:58:02 465] ns         436  ip_is_expected=  true  
+[2023/09/19 09:58:02 465] ns         444  ip_is_expected=  true  
+[2023/09/19 09:58:02 465] network    445  gethttpresp2  101.200.180.128  80  ns2  
+[2023/09/19 09:58:02 465] network    465  prot_type  tcp  
+[2023/09/19 09:58:02 473] transport  194  [dns] [1] response 114.118.65.97  
+[2023/09/19 09:58:02 473] transport  202  114  118  65  97  
+[2023/09/19 09:58:02 473] transport  204  ipv =  v4  
+[2023/09/19 09:58:02 473] transport  208  dns ip is v4  
+[2023/09/19 09:58:02 473] transport  130  iplist not avail  
+[2023/09/19 09:58:02 474] transport  247  no iplist now  
+[2023/09/19 09:58:02 474] network    95   iptoenv ,  ipcache  open.xf-yun.com  def  114.118.65.97  
+[2023/09/19 09:58:02 475] transport  291  dns cb start conn  
+[2023/09/19 09:58:02 475] transport  1304 [soc] connect   114.118.65.97  1028  
+[2023/09/19 09:58:02 475] transport  1316 mspsoc.open,prot_type=  tcp  
+[2023/09/19 09:58:02 508] network    350  connected  ns2  
+[2023/09/19 09:58:02 508] network    353  send ok  268  ns2  
+[2023/09/19 09:58:02 528] transport  473  [soc] [1] connected  
+[2023/09/19 09:58:02 529] transport  1799 transport_obj.try2send | in  
+[2023/09/19 09:58:02 529] transport  1800 self.soc  udata(ec0331d8) 
+[2023/09/19 09:58:02 529] transport  1801 self.connected  true  
+[2023/09/19 09:58:02 529] transport  1802 self.latesterr  0  
+[2023/09/19 09:58:02 529] transport  1819 transport:try2send,#msg_q=  1  
+[2023/09/19 09:58:02 529] transport  1359 build http request.  
+[2023/09/19 09:58:02 530] transport  1476 POST /msp.do HTTP/1.1
+X-Sub: auth
+X-Par: ver=MSSP+0%2E9&sub=auth&cmd=lgi&cver=5%2E0%2E44%2E1288&key=08J/D9BuKlyIY=
+Host: open.xf-yun.com
+CT: multipart/mixed;boundary=--
+CL: 331
+
+----
+Content-Length:56
+Content-Type:text/appinfo
+Content-Encoding:gzip,encrypt/0.2
+
+£·ÕÄ+õ“œ÷WQV/T—RQW*V+/PTWS/V—“.,TR+(,//WQbbﬂ:h*  
+[2023/09/19 09:58:02 531] transport  1819 transport:try2send,#msg_q=  0  
+[2023/09/19 09:58:02 531] transport  482  [soc] [1] send ok  516  
+[2023/09/19 09:58:02 531] transport  1799 transport_obj.try2send | in  
+[2023/09/19 09:58:02 531] transport  1800 self.soc  udata(ec0331d8) 
+[2023/09/19 09:58:02 531] transport  1801 self.connected  true  
+[2023/09/19 09:58:02 531] transport  1802 self.latesterr  0  
+[2023/09/19 09:58:02 531] transport  1819 transport:try2send,#msg_q=  0  
+[2023/09/19 09:58:02 549] network    362  readable  ns2  
+[2023/09/19 09:58:02 550] network    366  HTTP/1.1 200 OK
+Server: iflytek/hdns
+Date: Tue, 19 Sep 2023 01:58:01 GMT
+Content-Type: application/json
+Content-Length: 314
+Connection: close
+
+{"dns":[{"host":"open.xf-yun.com","sip":[{"svc":"ath","ips":[{"ip":"114.118.65.97","port":80,"idc":"jxq"},{"ip":"114.118.65.89","port":80,"idc":"jxq"}],"ttl":6000,"compel":0}]}],"default":[{"host":"open.xf-yun.com","sip":[{"svc":"ath","ips":[{"ip":"114.118.65.89","port":80,"idc":"jxq"}],"ttl":6000,"compel":0}]}]}  
+[2023/09/19 09:58:02 550] ns         253  name server http resp  0  
+[2023/09/19 09:58:02 550] ns         266  ns response OK for this time!  
+[2023/09/19 09:58:02 550] ns         277  from_server=  iflytek/hdns  
+[2023/09/19 09:58:02 550] ns         360  compel :  0  
+[2023/09/19 09:58:02 551] transport  1063 ns_ip =   114.118.65.97  
+[2023/09/19 09:58:02 551] transport  1064 ip_type =  assigned_athopen.xf-yun.com_host  
+[2023/09/19 09:58:02 551] ns         670  no data in ns_q  
+[2023/09/19 09:58:02 551] ns         671  conti_ns,ns_inprog =   1  
+[2023/09/19 09:58:02 586] transport  494  [soc] [1] readable  
+[2023/09/19 09:58:02 586] transport  1767 HTTP/1.1 200 OK
+Content-Length: 1
+X-Req-Date: 2023/09/19 09:58:02 568
+X-Par: ver=MSSP+0%2E9&ret=0&cver=5%2E0%2E44%2E1288&uid=d18794352986&key=0baFvYUuPdBRo9ZVAhrKj0dX7N1yoFmqxrcWa7JTYAu2O^^GHVr44O7DzfnSnfSxrqEahEMmTNHMxFpO3Bt4l2LEWk7cG3iXYs
+CT: text/plain
+CL: 1
+Content-Length: 1
+X-Res-Date: 2023/09/19 09:58:02 583
+
+0  
+[2023/09/19 09:58:02 586] transport  1494 a_complete_httpmessage  200  
+[2023/09/19 09:58:02 586] transport  1604 is_update  false  
+[2023/09/19 09:58:02 586] lgi        105  [trans] [id = lgi_] readable  
+[2023/09/19 09:58:02 587] network    90   ipfromenv ,  ipcache  open.xf-yun.com  def  114.118.65.98  
+[2023/09/19 09:58:02 587] transport  978  unexpected cached ip  
+[2023/09/19 09:58:02 588] network    95   iptoenv ,  ipcache  open.xf-yun.com  def  nil  
+[2023/09/19 09:58:02 589] transport  1332 [soc] disconnect   
+[2023/09/19 09:58:02 589] transport  991  transport clean  
+[2023/09/19 09:58:02 589] lgi        136  lgi resp!  
+[2023/09/19 09:58:02 589] lgi        143  lgi ok!  
+[2023/09/19 09:58:02 589] lgi        151  unkown  d18794352986  
+[2023/09/19 09:58:02 590] lgi        72   loginid =   1  d18794352986  
+[2023/09/19 09:58:02 590] lgi        75   notify_lgi_result, ret = 0  
+============================================================
+Time  2023/09/19 09:58:17 859 
+============================================================
+[2023/09/19 09:58:17 859] lgi        684  SYS_MSG_LOAD  
+[2023/09/19 09:58:17 859] lgi        706  SYS_MSG_REGCB  msp_status_cb  func(13210) 
+[2023/09/19 09:58:17 859] lgi        298  LGI_MSG_INIT  
+[2023/09/19 09:58:17 859] lgi        305  lgi  lgi_  268436457  1573471853  
+[2023/09/19 09:58:17 859] lgi        347  work_dir  .  
+[2023/09/19 09:58:17 859] lgi        403  token:  nil  
+[2023/09/19 09:58:17 859] lgi        476  msc cver : 5.0.44.1288  
+[2023/09/19 09:58:17 859] lgi        519  ns_enable=  1  
+[2023/09/19 09:58:17 859] lgi        531  prot_ver=1  
+[2023/09/19 09:58:17 859] lgi        542  prot_type=tcp  
+[2023/09/19 09:58:17 859] lgi        693  SYS_MSG_UNLOAD  go bg!  
+============================================================
+Time  2023/09/19 10:00:40 332 
+============================================================
+[2023/09/19 10:00:40 332] lgi        684  SYS_MSG_LOAD  
+[2023/09/19 10:00:40 333] lgi        706  SYS_MSG_REGCB  msp_status_cb  func(b4013250) 
+[2023/09/19 10:00:40 333] lgi        298  LGI_MSG_INIT  
+[2023/09/19 10:00:40 333] lgi        305  lgi  lgi_  268436457  1573471853  
+[2023/09/19 10:00:40 333] lgi        347  work_dir  .  
+[2023/09/19 10:00:40 333] lgi        403  token:  nil  
+[2023/09/19 10:00:40 333] lgi        476  msc cver : 5.0.44.1288  
+[2023/09/19 10:00:40 333] lgi        519  ns_enable=  1  
+[2023/09/19 10:00:40 333] lgi        531  prot_ver=1  
+[2023/09/19 10:00:40 333] lgi        542  prot_type=tcp  
+[2023/09/19 10:00:40 333] lgi        693  SYS_MSG_UNLOAD  go bg!  
+[2023/09/19 10:00:40 509] lgi        598  LGI_MSG_START, caller =  cloud_cisr1P1HHBHIaEwlhy3HHaa1DFHPiuM-tFw  
+[2023/09/19 10:00:40 509] lgi        604  lgistat =   0  
+[2023/09/19 10:00:40 509] lgi        630  lgi_auth_id =  nil  
+[2023/09/19 10:00:40 509] transport  645  paramkvsport is   0  
+[2023/09/19 10:00:40 509] transport  657  ns_enable=  1  
+[2023/09/19 10:00:40 509] transport  659  2017-08--24 is_ns_need_close =   nil  
+[2023/09/19 10:00:40 509] transport  665  net.nettype=  unknown  
+[2023/09/19 10:00:40 509] transport  675  url.full=  nil  
+[2023/09/19 10:00:40 509] transport  680  server_url_host=, server_url_port=, server_url_path=  open.xf-yun.com  nil  /msp.do  
+[2023/09/19 10:00:40 509] transport  907  net type:  unknown  
+[2023/09/19 10:00:40 509] transport  908  net operator:  def  
+[2023/09/19 10:00:40 509] transport  909  use proxy:  false  
+[2023/09/19 10:00:40 509] lgi        277  [session] send lgi request  
+[2023/09/19 10:00:40 509] transport  1105 session.domain=  open.xf-yun.com  
+[2023/09/19 10:00:40 509] transport  1106 url.host=  open.xf-yun.com  
+[2023/09/19 10:00:40 509] transport  1083 NAMESERVER START  
+[2023/09/19 10:00:40 509] transport  1086 name =   ath  
+[2023/09/19 10:00:40 509] ns         634  ntt=  unknown  
+[2023/09/19 10:00:40 509] transport  1089 trans,ns_inprog =  0  
+[2023/09/19 10:00:40 509] ns         582  name server start  
+[2023/09/19 10:00:40 509] ns         588  ns_sub =   ath  
+[2023/09/19 10:00:40 509] ns         596  ns_host =   open.xf-yun.com  
+[2023/09/19 10:00:40 509] ns         475  ns_host=  open.xf-yun.com  
+[2023/09/19 10:00:40 509] ns         555  net_type =  standard  
+[2023/09/19 10:00:40 509] ns         556  cmwapascmnet =  
+[2023/09/19 10:00:40 509] ns         557  uniwapasuninet =  
+[2023/09/19 10:00:40 509] ns         558  ctwapasctnet =  
+[2023/09/19 10:00:40 509] ns         576  host=  hdns.xf-yun.com  
+[2023/09/19 10:00:40 509] network    263  gethostbyname  hdns.xf-yun.com  ns1  
+[2023/09/19 10:00:40 509] lgi        244  lver:  nil  
+[2023/09/19 10:00:40 509] lgi        249  cfg_ver:  nil  
+[2023/09/19 10:00:40 510] transport  1860 transport_obj.send | in  
+[2023/09/19 10:00:40 510] transport  1866 self.msg_flag_q  table(b4018370) 
+[2023/09/19 10:00:40 510] transport  1867 self.msg_q  table(b4016e00) 
+[2023/09/19 10:00:40 510] transport  1799 transport_obj.try2send | in  
+[2023/09/19 10:00:40 510] transport  1800 self.soc  nil  
+[2023/09/19 10:00:40 510] transport  1801 self.connected  false  
+[2023/09/19 10:00:40 510] transport  1802 self.latesterr  0  
+[2023/09/19 10:00:40 510] transport  1873 transport_obj.send | out  
+[2023/09/19 10:00:40 520] network    245  dns resp  0  ns1  
+[2023/09/19 10:00:40 520] ns         422  ns dns ok  101.200.180.128  
+[2023/09/19 10:00:40 520] ns         202  iplist not avail  
+[2023/09/19 10:00:40 520] ns         429  is_voicecloud_ip=  0  
+[2023/09/19 10:00:40 520] ns         436  ip_is_expected=  true  
+[2023/09/19 10:00:40 520] ns         444  ip_is_expected=  true  
+[2023/09/19 10:00:40 520] network    445  gethttpresp2  101.200.180.128  80  ns2  
+[2023/09/19 10:00:40 520] network    465  prot_type  tcp  
+[2023/09/19 10:00:40 528] transport  194  [dns] [1] response 114.118.65.92  
+[2023/09/19 10:00:40 528] transport  202  114  118  65  92  
+[2023/09/19 10:00:40 528] transport  204  ipv =  v4  
+[2023/09/19 10:00:40 528] transport  208  dns ip is v4  
+[2023/09/19 10:00:40 528] transport  130  iplist not avail  
+[2023/09/19 10:00:40 528] transport  247  no iplist now  
+[2023/09/19 10:00:40 528] network    95   iptoenv ,  ipcache  open.xf-yun.com  def  114.118.65.92  
+[2023/09/19 10:00:40 529] transport  291  dns cb start conn  
+[2023/09/19 10:00:40 529] transport  1304 [soc] connect   114.118.65.92  1028  
+[2023/09/19 10:00:40 529] transport  1316 mspsoc.open,prot_type=  tcp  
+[2023/09/19 10:00:40 551] network    350  connected  ns2  
+[2023/09/19 10:00:40 551] network    353  send ok  268  ns2  
+[2023/09/19 10:00:40 583] transport  473  [soc] [1] connected  
+[2023/09/19 10:00:40 583] transport  1799 transport_obj.try2send | in  
+[2023/09/19 10:00:40 583] transport  1800 self.soc  udata(b40331d8) 
+[2023/09/19 10:00:40 583] transport  1801 self.connected  true  
+[2023/09/19 10:00:40 583] transport  1802 self.latesterr  0  
+[2023/09/19 10:00:40 584] transport  1819 transport:try2send,#msg_q=  1  
+[2023/09/19 10:00:40 584] transport  1359 build http request.  
+[2023/09/19 10:00:40 584] transport  1476 POST /msp.do HTTP/1.1
+X-Sub: auth
+X-Par: ver=MSSP+0%2E9&sub=auth&cmd=lgi&cver=5%2E0%2E44%2E1288&key=08J/D9BuKlyIY=
+Host: open.xf-yun.com
+CT: multipart/mixed;boundary=--
+CL: 331
+
+----
+Content-Length:56
+Content-Type:text/appinfo
+Content-Encoding:gzip,encrypt/0.2
+
+£·ÕÄ+õ“œ÷WQV/T—RQW*V+/PTWS/V—“.,TR+(,//WQbbﬂ:h*  
+[2023/09/19 10:00:40 585] transport  1819 transport:try2send,#msg_q=  0  
+[2023/09/19 10:00:40 585] transport  482  [soc] [1] send ok  516  
+[2023/09/19 10:00:40 585] transport  1799 transport_obj.try2send | in  
+[2023/09/19 10:00:40 585] transport  1800 self.soc  udata(b40331d8) 
+[2023/09/19 10:00:40 585] transport  1801 self.connected  true  
+[2023/09/19 10:00:40 585] transport  1802 self.latesterr  0  
+[2023/09/19 10:00:40 585] transport  1819 transport:try2send,#msg_q=  0  
+[2023/09/19 10:00:40 593] network    362  readable  ns2  
+[2023/09/19 10:00:40 594] network    366  HTTP/1.1 200 OK
+Server: iflytek/hdns
+Date: Tue, 19 Sep 2023 02:00:39 GMT
+Content-Type: application/json
+Content-Length: 314
+Connection: close
+
+{"dns":[{"host":"open.xf-yun.com","sip":[{"svc":"ath","ips":[{"ip":"114.118.65.76","port":80,"idc":"jxq"},{"ip":"114.118.65.89","port":80,"idc":"jxq"}],"ttl":6000,"compel":0}]}],"default":[{"host":"open.xf-yun.com","sip":[{"svc":"ath","ips":[{"ip":"114.118.65.89","port":80,"idc":"jxq"}],"ttl":6000,"compel":0}]}]}  
+[2023/09/19 10:00:40 594] ns         253  name server http resp  0  
+[2023/09/19 10:00:40 594] ns         266  ns response OK for this time!  
+[2023/09/19 10:00:40 594] ns         277  from_server=  iflytek/hdns  
+[2023/09/19 10:00:40 595] ns         360  compel :  0  
+[2023/09/19 10:00:40 595] transport  1063 ns_ip =   114.118.65.76  
+[2023/09/19 10:00:40 595] transport  1064 ip_type =  assigned_athopen.xf-yun.com_host  
+[2023/09/19 10:00:40 595] ns         670  no data in ns_q  
+[2023/09/19 10:00:40 595] ns         671  conti_ns,ns_inprog =   1  
+[2023/09/19 10:00:40 640] transport  494  [soc] [1] readable  
+[2023/09/19 10:00:40 641] transport  1767 HTTP/1.1 200 OK
+Content-Length: 1
+X-Req-Date: 2023/09/19 10:00:40 614
+X-Par: ver=MSSP+0%2E9&ret=0&cver=5%2E0%2E44%2E1288&uid=d18794352986&key=0bacqYYrm8ouuRA6cQrpY5m8J1O6x5DzSr1udJaFQwwru^^GHVr44O7DzfnSnfSxrqEahEMmTNHMxFpO3Bt4l2LEWk7cG3iXYs
+CT: text/plain
+CL: 1
+Content-Length: 1
+X-Res-Date: 2023/09/19 10:00:40 630
+
+0  
+[2023/09/19 10:00:40 641] transport  1494 a_complete_httpmessage  200  
+[2023/09/19 10:00:40 641] transport  1604 is_update  false  
+[2023/09/19 10:00:40 641] lgi        105  [trans] [id = lgi_] readable  
+[2023/09/19 10:00:40 643] network    90   ipfromenv ,  ipcache  open.xf-yun.com  def  114.118.65.90  
+[2023/09/19 10:00:40 643] transport  972  iplist not avail  
+[2023/09/19 10:00:40 643] transport  1332 [soc] disconnect   
+[2023/09/19 10:00:40 644] transport  991  transport clean  
+[2023/09/19 10:00:40 644] lgi        136  lgi resp!  
+[2023/09/19 10:00:40 644] lgi        143  lgi ok!  
+[2023/09/19 10:00:40 644] lgi        151  unkown  d18794352986  
+[2023/09/19 10:00:40 644] lgi        72   loginid =   1  d18794352986  
+[2023/09/19 10:00:40 644] lgi        75   notify_lgi_result, ret = 0  
+============================================================
+Time  2023/09/19 10:02:14 759 
+============================================================
+[2023/09/19 10:02:14 759] lgi        684  SYS_MSG_LOAD  
+[2023/09/19 10:02:14 760] lgi        706  SYS_MSG_REGCB  msp_status_cb  func(e4013250) 
+[2023/09/19 10:02:14 760] lgi        298  LGI_MSG_INIT  
+[2023/09/19 10:02:14 760] lgi        305  lgi  lgi_  268436457  1573471853  
+[2023/09/19 10:02:14 760] lgi        347  work_dir  .  
+[2023/09/19 10:02:14 760] lgi        403  token:  nil  
+[2023/09/19 10:02:14 760] lgi        476  msc cver : 5.0.44.1288  
+[2023/09/19 10:02:14 760] lgi        519  ns_enable=  1  
+[2023/09/19 10:02:14 760] lgi        531  prot_ver=1  
+[2023/09/19 10:02:14 760] lgi        542  prot_type=tcp  
+[2023/09/19 10:02:14 760] lgi        693  SYS_MSG_UNLOAD  go bg!  
+[2023/09/19 10:02:14 935] lgi        598  LGI_MSG_START, caller =  cloud_cisr1P1HHBHIaEdshNldTaa1aqkzZ08AWrB  
+[2023/09/19 10:02:14 935] lgi        604  lgistat =   0  
+[2023/09/19 10:02:14 935] lgi        630  lgi_auth_id =  nil  
+[2023/09/19 10:02:14 935] transport  645  paramkvsport is   0  
+[2023/09/19 10:02:14 935] transport  657  ns_enable=  1  
+[2023/09/19 10:02:14 935] transport  659  2017-08--24 is_ns_need_close =   nil  
+[2023/09/19 10:02:14 935] transport  665  net.nettype=  unknown  
+[2023/09/19 10:02:14 935] transport  675  url.full=  nil  
+[2023/09/19 10:02:14 935] transport  680  server_url_host=, server_url_port=, server_url_path=  open.xf-yun.com  nil  /msp.do  
+[2023/09/19 10:02:14 935] transport  907  net type:  unknown  
+[2023/09/19 10:02:14 935] transport  908  net operator:  def  
+[2023/09/19 10:02:14 936] transport  909  use proxy:  false  
+[2023/09/19 10:02:14 936] lgi        277  [session] send lgi request  
+[2023/09/19 10:02:14 936] transport  1105 session.domain=  open.xf-yun.com  
+[2023/09/19 10:02:14 936] transport  1106 url.host=  open.xf-yun.com  
+[2023/09/19 10:02:14 936] transport  1083 NAMESERVER START  
+[2023/09/19 10:02:14 936] transport  1086 name =   ath  
+[2023/09/19 10:02:14 936] ns         634  ntt=  unknown  
+[2023/09/19 10:02:14 936] transport  1089 trans,ns_inprog =  0  
+[2023/09/19 10:02:14 936] ns         582  name server start  
+[2023/09/19 10:02:14 936] ns         588  ns_sub =   ath  
+[2023/09/19 10:02:14 936] ns         596  ns_host =   open.xf-yun.com  
+[2023/09/19 10:02:14 936] ns         475  ns_host=  open.xf-yun.com  
+[2023/09/19 10:02:14 936] ns         555  net_type =  standard  
+[2023/09/19 10:02:14 936] ns         556  cmwapascmnet =  
+[2023/09/19 10:02:14 936] ns         557  uniwapasuninet =  
+[2023/09/19 10:02:14 936] ns         558  ctwapasctnet =  
+[2023/09/19 10:02:14 936] ns         576  host=  hdns.xf-yun.com  
+[2023/09/19 10:02:14 936] network    263  gethostbyname  hdns.xf-yun.com  ns1  
+[2023/09/19 10:02:14 936] lgi        244  lver:  nil  
+[2023/09/19 10:02:14 936] lgi        249  cfg_ver:  nil  
+[2023/09/19 10:02:14 936] transport  1860 transport_obj.send | in  
+[2023/09/19 10:02:14 936] transport  1866 self.msg_flag_q  table(e4017ff0) 
+[2023/09/19 10:02:14 936] transport  1867 self.msg_q  table(e4017fa0) 
+[2023/09/19 10:02:14 936] transport  1799 transport_obj.try2send | in  
+[2023/09/19 10:02:14 936] transport  1800 self.soc  nil  
+[2023/09/19 10:02:14 936] transport  1801 self.connected  false  
+[2023/09/19 10:02:14 936] transport  1802 self.latesterr  0  
+[2023/09/19 10:02:14 936] transport  1873 transport_obj.send | out  
+[2023/09/19 10:02:14 946] network    245  dns resp  0  ns1  
+[2023/09/19 10:02:14 946] ns         422  ns dns ok  101.200.180.128  
+[2023/09/19 10:02:14 946] ns         202  iplist not avail  
+[2023/09/19 10:02:14 947] ns         429  is_voicecloud_ip=  0  
+[2023/09/19 10:02:14 947] ns         436  ip_is_expected=  true  
+[2023/09/19 10:02:14 947] ns         444  ip_is_expected=  true  
+[2023/09/19 10:02:14 947] network    445  gethttpresp2  101.200.180.128  80  ns2  
+[2023/09/19 10:02:14 947] network    465  prot_type  tcp  
+[2023/09/19 10:02:14 955] transport  194  [dns] [1] response 114.118.65.97  
+[2023/09/19 10:02:14 955] transport  202  114  118  65  97  
+[2023/09/19 10:02:14 955] transport  204  ipv =  v4  
+[2023/09/19 10:02:14 955] transport  208  dns ip is v4  
+[2023/09/19 10:02:14 955] transport  130  iplist not avail  
+[2023/09/19 10:02:14 955] transport  247  no iplist now  
+[2023/09/19 10:02:14 955] network    95   iptoenv ,  ipcache  open.xf-yun.com  def  114.118.65.97  
+[2023/09/19 10:02:14 957] transport  291  dns cb start conn  
+[2023/09/19 10:02:14 957] transport  1304 [soc] connect   114.118.65.97  1028  
+[2023/09/19 10:02:14 957] transport  1316 mspsoc.open,prot_type=  tcp  
+[2023/09/19 10:02:14 978] network    350  connected  ns2  
+[2023/09/19 10:02:14 978] network    353  send ok  268  ns2  
+[2023/09/19 10:02:15 010] transport  473  [soc] [1] connected  
+[2023/09/19 10:02:15 011] transport  1799 transport_obj.try2send | in  
+[2023/09/19 10:02:15 011] transport  1800 self.soc  udata(e4033218) 
+[2023/09/19 10:02:15 011] transport  1801 self.connected  true  
+[2023/09/19 10:02:15 011] transport  1802 self.latesterr  0  
+[2023/09/19 10:02:15 011] transport  1819 transport:try2send,#msg_q=  1  
+[2023/09/19 10:02:15 011] transport  1359 build http request.  
+[2023/09/19 10:02:15 012] transport  1476 POST /msp.do HTTP/1.1
+X-Sub: auth
+X-Par: ver=MSSP+0%2E9&sub=auth&cmd=lgi&cver=5%2E0%2E44%2E1288&key=08J/D9BuKlyIY=
+Host: open.xf-yun.com
+CT: multipart/mixed;boundary=--
+CL: 331
+
+----
+Content-Length:56
+Content-Type:text/appinfo
+Content-Encoding:gzip,encrypt/0.2
+
+£·ÕÄ+õ“œ÷WQV/T—RQW*V+/PTWS/V—“.,TR+(,//WQbbﬂ:h*  
+[2023/09/19 10:02:15 013] transport  1819 transport:try2send,#msg_q=  0  
+[2023/09/19 10:02:15 013] transport  482  [soc] [1] send ok  516  
+[2023/09/19 10:02:15 013] transport  1799 transport_obj.try2send | in  
+[2023/09/19 10:02:15 013] transport  1800 self.soc  udata(e4033218) 
+[2023/09/19 10:02:15 013] transport  1801 self.connected  true  
+[2023/09/19 10:02:15 013] transport  1802 self.latesterr  0  
+[2023/09/19 10:02:15 013] transport  1819 transport:try2send,#msg_q=  0  
+[2023/09/19 10:02:15 020] network    362  readable  ns2  
+[2023/09/19 10:02:15 021] network    366  HTTP/1.1 200 OK
+Server: iflytek/hdns
+Date: Tue, 19 Sep 2023 02:02:14 GMT
+Content-Type: application/json
+Content-Length: 314
+Connection: close
+
+{"dns":[{"host":"open.xf-yun.com","sip":[{"svc":"ath","ips":[{"ip":"114.118.65.91","port":80,"idc":"jxq"},{"ip":"114.118.65.98","port":80,"idc":"jxq"}],"ttl":6000,"compel":0}]}],"default":[{"host":"open.xf-yun.com","sip":[{"svc":"ath","ips":[{"ip":"114.118.65.98","port":80,"idc":"jxq"}],"ttl":6000,"compel":0}]}]}  
+[2023/09/19 10:02:15 021] ns         253  name server http resp  0  
+[2023/09/19 10:02:15 021] ns         266  ns response OK for this time!  
+[2023/09/19 10:02:15 021] ns         277  from_server=  iflytek/hdns  
+[2023/09/19 10:02:15 022] ns         360  compel :  0  
+[2023/09/19 10:02:15 022] transport  1063 ns_ip =   114.118.65.91  
+[2023/09/19 10:02:15 022] transport  1064 ip_type =  assigned_athopen.xf-yun.com_host  
+[2023/09/19 10:02:15 022] ns         670  no data in ns_q  
+[2023/09/19 10:02:15 022] ns         671  conti_ns,ns_inprog =   1  
+[2023/09/19 10:02:15 067] transport  494  [soc] [1] readable  
+[2023/09/19 10:02:15 067] transport  1767 HTTP/1.1 200 OK
+Content-Length: 1
+X-Req-Date: 2023/09/19 10:02:15 40
+X-Par: ver=MSSP+0%2E9&ret=0&cver=5%2E0%2E44%2E1288&uid=d18794352986&key=0bdvfo8PhZyI7E790h0cRDc7sfcn8w6Np/Qxcq1bIHzo2^^GHVr44O7DzfnSnfSxrqEahEMmTNHMxFpO3Bt4l2LEWk7cG3iXYs
+CT: text/plain
+CL: 1
+Content-Length: 1
+X-Res-Date: 2023/09/19 10:02:15 55
+
+0  
+[2023/09/19 10:02:15 067] transport  1494 a_complete_httpmessage  200  
+[2023/09/19 10:02:15 067] transport  1604 is_update  false  
+[2023/09/19 10:02:15 067] lgi        105  [trans] [id = lgi_] readable  
+[2023/09/19 10:02:15 067] network    90   ipfromenv ,  ipcache  open.xf-yun.com  def  114.118.65.89  
+[2023/09/19 10:02:15 067] transport  981  cached ip is confirmed  
+[2023/09/19 10:02:15 067] transport  1332 [soc] disconnect   
+[2023/09/19 10:02:15 068] transport  991  transport clean  
+[2023/09/19 10:02:15 068] lgi        136  lgi resp!  
+[2023/09/19 10:02:15 068] lgi        143  lgi ok!  
+[2023/09/19 10:02:15 068] lgi        151  unkown  d18794352986  
+[2023/09/19 10:02:15 068] lgi        72   loginid =   1  d18794352986  
+[2023/09/19 10:02:15 068] lgi        75   notify_lgi_result, ret = 0  
+============================================================
+Time  2023/09/19 10:03:25 860 
+============================================================
+[2023/09/19 10:03:25 860] lgi        684  SYS_MSG_LOAD  
+[2023/09/19 10:03:25 861] lgi        706  SYS_MSG_REGCB  msp_status_cb  func(b8013250) 
+[2023/09/19 10:03:25 861] lgi        298  LGI_MSG_INIT  
+[2023/09/19 10:03:25 861] lgi        305  lgi  lgi_  268436457  1573471853  
+[2023/09/19 10:03:25 861] lgi        347  work_dir  .  
+[2023/09/19 10:03:25 861] lgi        403  token:  nil  
+[2023/09/19 10:03:25 861] lgi        476  msc cver : 5.0.44.1288  
+[2023/09/19 10:03:25 861] lgi        519  ns_enable=  1  
+[2023/09/19 10:03:25 861] lgi        531  prot_ver=1  
+[2023/09/19 10:03:25 861] lgi        542  prot_type=tcp  
+[2023/09/19 10:03:25 861] lgi        693  SYS_MSG_UNLOAD  go bg!  
+[2023/09/19 10:03:25 866] lgi        598  LGI_MSG_START, caller =  ctts1P1HHBHIaE1VhNeNDaatevl9D59XlSn  
+[2023/09/19 10:03:25 866] lgi        604  lgistat =   0  
+[2023/09/19 10:03:25 866] lgi        630  lgi_auth_id =  nil  
+[2023/09/19 10:03:25 866] transport  645  paramkvsport is   0  
+[2023/09/19 10:03:25 866] transport  657  ns_enable=  1  
+[2023/09/19 10:03:25 866] transport  659  2017-08--24 is_ns_need_close =   nil  
+[2023/09/19 10:03:25 867] transport  665  net.nettype=  unknown  
+[2023/09/19 10:03:25 867] transport  675  url.full=  nil  
+[2023/09/19 10:03:25 867] transport  680  server_url_host=, server_url_port=, server_url_path=  open.xf-yun.com  nil  /msp.do  
+[2023/09/19 10:03:25 867] transport  907  net type:  unknown  
+[2023/09/19 10:03:25 867] transport  908  net operator:  def  
+[2023/09/19 10:03:25 867] transport  909  use proxy:  false  
+[2023/09/19 10:03:25 867] lgi        277  [session] send lgi request  
+[2023/09/19 10:03:25 867] transport  1105 session.domain=  open.xf-yun.com  
+[2023/09/19 10:03:25 867] transport  1106 url.host=  open.xf-yun.com  
+[2023/09/19 10:03:25 867] transport  1083 NAMESERVER START  
+[2023/09/19 10:03:25 867] transport  1086 name =   ath  
+[2023/09/19 10:03:25 867] ns         634  ntt=  unknown  
+[2023/09/19 10:03:25 867] transport  1089 trans,ns_inprog =  0  
+[2023/09/19 10:03:25 867] ns         582  name server start  
+[2023/09/19 10:03:25 867] ns         588  ns_sub =   ath  
+[2023/09/19 10:03:25 867] ns         596  ns_host =   open.xf-yun.com  
+[2023/09/19 10:03:25 867] ns         475  ns_host=  open.xf-yun.com  
+[2023/09/19 10:03:25 868] ns         555  net_type =  standard  
+[2023/09/19 10:03:25 868] ns         556  cmwapascmnet =  
+[2023/09/19 10:03:25 868] ns         557  uniwapasuninet =  
+[2023/09/19 10:03:25 868] ns         558  ctwapasctnet =  
+[2023/09/19 10:03:25 868] ns         576  host=  hdns.xf-yun.com  
+[2023/09/19 10:03:25 868] network    263  gethostbyname  hdns.xf-yun.com  ns1  
+[2023/09/19 10:03:25 868] lgi        244  lver:  nil  
+[2023/09/19 10:03:25 868] lgi        249  cfg_ver:  nil  
+[2023/09/19 10:03:25 868] transport  1860 transport_obj.send | in  
+[2023/09/19 10:03:25 868] transport  1866 self.msg_flag_q  table(b8061160) 
+[2023/09/19 10:03:25 868] transport  1867 self.msg_q  table(b8061110) 
+[2023/09/19 10:03:25 868] transport  1799 transport_obj.try2send | in  
+[2023/09/19 10:03:25 868] transport  1800 self.soc  nil  
+[2023/09/19 10:03:25 868] transport  1801 self.connected  false  
+[2023/09/19 10:03:25 868] transport  1802 self.latesterr  0  
+[2023/09/19 10:03:25 868] transport  1873 transport_obj.send | out  
+[2023/09/19 10:03:25 879] network    245  dns resp  0  ns1  
+[2023/09/19 10:03:25 879] ns         422  ns dns ok  101.200.180.128  
+[2023/09/19 10:03:25 879] ns         202  iplist not avail  
+[2023/09/19 10:03:25 880] ns         429  is_voicecloud_ip=  0  
+[2023/09/19 10:03:25 880] ns         436  ip_is_expected=  true  
+[2023/09/19 10:03:25 880] ns         444  ip_is_expected=  true  
+[2023/09/19 10:03:25 880] network    445  gethttpresp2  101.200.180.128  80  ns2  
+[2023/09/19 10:03:25 880] network    465  prot_type  tcp  
+[2023/09/19 10:03:25 881] transport  194  [dns] [1] response 114.118.65.89  
+[2023/09/19 10:03:25 881] transport  202  114  118  65  89  
+[2023/09/19 10:03:25 881] transport  204  ipv =  v4  
+[2023/09/19 10:03:25 881] transport  208  dns ip is v4  
+[2023/09/19 10:03:25 881] transport  130  iplist not avail  
+[2023/09/19 10:03:25 882] transport  247  no iplist now  
+[2023/09/19 10:03:25 882] network    95   iptoenv ,  ipcache  open.xf-yun.com  def  114.118.65.89  
+[2023/09/19 10:03:25 883] transport  291  dns cb start conn  
+[2023/09/19 10:03:25 883] transport  1304 [soc] connect   114.118.65.89  1028  
+[2023/09/19 10:03:25 883] transport  1316 mspsoc.open,prot_type=  tcp  
+[2023/09/19 10:03:25 912] network    350  connected  ns2  
+[2023/09/19 10:03:25 913] network    353  send ok  268  ns2  
+[2023/09/19 10:03:25 945] transport  473  [soc] [1] connected  
+[2023/09/19 10:03:25 945] transport  1799 transport_obj.try2send | in  
+[2023/09/19 10:03:25 945] transport  1800 self.soc  udata(b802d4b8) 
+[2023/09/19 10:03:25 946] transport  1801 self.connected  true  
+[2023/09/19 10:03:25 946] transport  1802 self.latesterr  0  
+[2023/09/19 10:03:25 946] transport  1819 transport:try2send,#msg_q=  1  
+[2023/09/19 10:03:25 946] transport  1359 build http request.  
+[2023/09/19 10:03:25 947] transport  1476 POST /msp.do HTTP/1.1
+X-Sub: auth
+X-Par: ver=MSSP+0%2E9&sub=auth&cmd=lgi&cver=5%2E0%2E44%2E1288&key=08J/D9BuKlyIY=
+Host: open.xf-yun.com
+CT: multipart/mixed;boundary=--
+CL: 331
+
+----
+Content-Length:56
+Content-Type:text/appinfo
+Content-Encoding:gzip,encrypt/0.2
+
+£·ÕÄ+õ“œ÷WQV/T—RQW*V+/PTWS/V—“.,TR+(,//WQbbﬂ:h*  
+[2023/09/19 10:03:25 947] transport  1819 transport:try2send,#msg_q=  0  
+[2023/09/19 10:03:25 948] network    362  readable  ns2  
+[2023/09/19 10:03:25 948] network    366  HTTP/1.1 200 OK
+Server: iflytek/hdns
+Date: Tue, 19 Sep 2023 02:03:25 GMT
+Content-Type: application/json
+Content-Length: 314
+Connection: close
+
+{"dns":[{"host":"open.xf-yun.com","sip":[{"svc":"ath","ips":[{"ip":"114.118.65.89","port":80,"idc":"jxq"},{"ip":"114.118.65.97","port":80,"idc":"jxq"}],"ttl":6000,"compel":0}]}],"default":[{"host":"open.xf-yun.com","sip":[{"svc":"ath","ips":[{"ip":"114.118.65.97","port":80,"idc":"jxq"}],"ttl":6000,"compel":0}]}]}  
+[2023/09/19 10:03:25 948] ns         253  name server http resp  0  
+[2023/09/19 10:03:25 948] ns         266  ns response OK for this time!  
+[2023/09/19 10:03:25 948] ns         277  from_server=  iflytek/hdns  
+[2023/09/19 10:03:25 949] ns         360  compel :  0  
+[2023/09/19 10:03:25 950] transport  1063 ns_ip =   114.118.65.89  
+[2023/09/19 10:03:25 950] transport  1064 ip_type =  assigned_athopen.xf-yun.com_host  
+[2023/09/19 10:03:25 950] ns         670  no data in ns_q  
+[2023/09/19 10:03:25 950] ns         671  conti_ns,ns_inprog =   1  
+[2023/09/19 10:03:25 950] transport  482  [soc] [1] send ok  516  
+[2023/09/19 10:03:25 950] transport  1799 transport_obj.try2send | in  
+[2023/09/19 10:03:25 950] transport  1800 self.soc  udata(b802d4b8) 
+[2023/09/19 10:03:25 950] transport  1801 self.connected  true  
+[2023/09/19 10:03:25 950] transport  1802 self.latesterr  0  
+[2023/09/19 10:03:25 950] transport  1819 transport:try2send,#msg_q=  0  
+[2023/09/19 10:03:26 000] transport  494  [soc] [1] readable  
+[2023/09/19 10:03:26 000] transport  1767 HTTP/1.1 200 OK
+Content-Length: 1
+X-Req-Date: 2023/09/19 10:03:25 971
+X-Par: ver=MSSP+0%2E9&ret=0&cver=5%2E0%2E44%2E1288&uid=d18794352986&key=0bu9W6dhWZHoWj9e^oumeDZLSizJZSO4MtxNgIaKjtfta^^GHVr44O7DzfnSnfSxrqEahEMmTNHMxFpO3Bt4l2LEWk7cG3iXYs
+CT: text/plain
+CL: 1
+Content-Length: 1
+X-Res-Date: 2023/09/19 10:03:25 988
+
+0  
+[2023/09/19 10:03:26 000] transport  1494 a_complete_httpmessage  200  
+[2023/09/19 10:03:26 000] transport  1604 is_update  false  
+[2023/09/19 10:03:26 000] lgi        105  [trans] [id = lgi_] readable  
+[2023/09/19 10:03:26 001] network    90   ipfromenv ,  ipcache  open.xf-yun.com  def  114.118.65.89  
+[2023/09/19 10:03:26 001] transport  981  cached ip is confirmed  
+[2023/09/19 10:03:26 001] transport  1332 [soc] disconnect   
+[2023/09/19 10:03:26 001] transport  991  transport clean  
+[2023/09/19 10:03:26 002] lgi        136  lgi resp!  
+[2023/09/19 10:03:26 002] lgi        143  lgi ok!  
+[2023/09/19 10:03:26 002] lgi        151  unkown  d18794352986  
+[2023/09/19 10:03:26 002] lgi        72   loginid =   1  d18794352986  
+[2023/09/19 10:03:26 002] lgi        75   notify_lgi_result, ret = 0  
+[2023/09/19 10:03:32 116] lgi        697  SYS_MSG_SHUTDOWN  
+============================================================
+Time  2023/09/19 10:06:53 196 
+============================================================
+[2023/09/19 10:06:53 197] lgi        684  SYS_MSG_LOAD  
+[2023/09/19 10:06:53 197] lgi        706  SYS_MSG_REGCB  msp_status_cb  func(dc013250) 
+[2023/09/19 10:06:53 197] lgi        298  LGI_MSG_INIT  
+[2023/09/19 10:06:53 197] lgi        305  lgi  lgi_  268436457  1573471853  
+[2023/09/19 10:06:53 197] lgi        347  work_dir  .  
+[2023/09/19 10:06:53 197] lgi        403  token:  nil  
+[2023/09/19 10:06:53 197] lgi        476  msc cver : 5.0.44.1288  
+[2023/09/19 10:06:53 197] lgi        519  ns_enable=  1  
+[2023/09/19 10:06:53 197] lgi        531  prot_ver=1  
+[2023/09/19 10:06:53 197] lgi        542  prot_type=tcp  
+[2023/09/19 10:06:53 197] lgi        693  SYS_MSG_UNLOAD  go bg!  
+[2023/09/19 10:06:53 203] lgi        598  LGI_MSG_START, caller =  ctts1P1HHBHIaElhheBmbaadn2Pbndxfdru  
+[2023/09/19 10:06:53 203] lgi        604  lgistat =   0  
+[2023/09/19 10:06:53 203] lgi        630  lgi_auth_id =  nil  
+[2023/09/19 10:06:53 203] transport  645  paramkvsport is   0  
+[2023/09/19 10:06:53 203] transport  657  ns_enable=  1  
+[2023/09/19 10:06:53 203] transport  659  2017-08--24 is_ns_need_close =   nil  
+[2023/09/19 10:06:53 203] transport  665  net.nettype=  unknown  
+[2023/09/19 10:06:53 203] transport  675  url.full=  nil  
+[2023/09/19 10:06:53 203] transport  680  server_url_host=, server_url_port=, server_url_path=  open.xf-yun.com  nil  /msp.do  
+[2023/09/19 10:06:53 203] transport  907  net type:  unknown  
+[2023/09/19 10:06:53 203] transport  908  net operator:  def  
+[2023/09/19 10:06:53 203] transport  909  use proxy:  false  
+[2023/09/19 10:06:53 203] lgi        277  [session] send lgi request  
+[2023/09/19 10:06:53 203] transport  1105 session.domain=  open.xf-yun.com  
+[2023/09/19 10:06:53 203] transport  1106 url.host=  open.xf-yun.com  
+[2023/09/19 10:06:53 203] transport  1083 NAMESERVER START  
+[2023/09/19 10:06:53 204] transport  1086 name =   ath  
+[2023/09/19 10:06:53 204] ns         634  ntt=  unknown  
+[2023/09/19 10:06:53 204] transport  1089 trans,ns_inprog =  0  
+[2023/09/19 10:06:53 204] ns         582  name server start  
+[2023/09/19 10:06:53 204] ns         588  ns_sub =   ath  
+[2023/09/19 10:06:53 204] ns         596  ns_host =   open.xf-yun.com  
+[2023/09/19 10:06:53 204] ns         475  ns_host=  open.xf-yun.com  
+[2023/09/19 10:06:53 204] ns         555  net_type =  standard  
+[2023/09/19 10:06:53 204] ns         556  cmwapascmnet =  
+[2023/09/19 10:06:53 204] ns         557  uniwapasuninet =  
+[2023/09/19 10:06:53 204] ns         558  ctwapasctnet =  
+[2023/09/19 10:06:53 204] ns         576  host=  hdns.xf-yun.com  
+[2023/09/19 10:06:53 204] network    263  gethostbyname  hdns.xf-yun.com  ns1  
+[2023/09/19 10:06:53 204] lgi        244  lver:  nil  
+[2023/09/19 10:06:53 204] lgi        249  cfg_ver:  nil  
+[2023/09/19 10:06:53 204] transport  1860 transport_obj.send | in  
+[2023/09/19 10:06:53 204] transport  1866 self.msg_flag_q  table(dc0183c0) 
+[2023/09/19 10:06:53 204] transport  1867 self.msg_q  table(dc018370) 
+[2023/09/19 10:06:53 204] transport  1799 transport_obj.try2send | in  
+[2023/09/19 10:06:53 204] transport  1800 self.soc  nil  
+[2023/09/19 10:06:53 204] transport  1801 self.connected  false  
+[2023/09/19 10:06:53 204] transport  1802 self.latesterr  0  
+[2023/09/19 10:06:53 204] transport  1873 transport_obj.send | out  
+[2023/09/19 10:06:53 214] network    245  dns resp  0  ns1  
+[2023/09/19 10:06:53 214] ns         422  ns dns ok  101.200.180.128  
+[2023/09/19 10:06:53 214] ns         202  iplist not avail  
+[2023/09/19 10:06:53 215] ns         429  is_voicecloud_ip=  0  
+[2023/09/19 10:06:53 215] ns         436  ip_is_expected=  true  
+[2023/09/19 10:06:53 215] ns         444  ip_is_expected=  true  
+[2023/09/19 10:06:53 215] network    445  gethttpresp2  101.200.180.128  80  ns2  
+[2023/09/19 10:06:53 215] network    465  prot_type  tcp  
+[2023/09/19 10:06:53 224] transport  194  [dns] [1] response 114.118.65.98  
+[2023/09/19 10:06:53 224] transport  202  114  118  65  98  
+[2023/09/19 10:06:53 224] transport  204  ipv =  v4  
+[2023/09/19 10:06:53 224] transport  208  dns ip is v4  
+[2023/09/19 10:06:53 224] transport  130  iplist not avail  
+[2023/09/19 10:06:53 224] transport  247  no iplist now  
+[2023/09/19 10:06:53 224] network    95   iptoenv ,  ipcache  open.xf-yun.com  def  114.118.65.98  
+[2023/09/19 10:06:53 226] transport  291  dns cb start conn  
+[2023/09/19 10:06:53 226] transport  1304 [soc] connect   114.118.65.98  1028  
+[2023/09/19 10:06:53 226] transport  1316 mspsoc.open,prot_type=  tcp  
+[2023/09/19 10:06:53 248] network    350  connected  ns2  
+[2023/09/19 10:06:53 248] network    353  send ok  268  ns2  
+[2023/09/19 10:06:53 283] transport  473  [soc] [1] connected  
+[2023/09/19 10:06:53 283] transport  1799 transport_obj.try2send | in  
+[2023/09/19 10:06:53 283] transport  1800 self.soc  udata(dc0331d8) 
+[2023/09/19 10:06:53 283] transport  1801 self.connected  true  
+[2023/09/19 10:06:53 283] transport  1802 self.latesterr  0  
+[2023/09/19 10:06:53 283] transport  1819 transport:try2send,#msg_q=  1  
+[2023/09/19 10:06:53 283] transport  1359 build http request.  
+[2023/09/19 10:06:53 284] transport  1476 POST /msp.do HTTP/1.1
+X-Sub: auth
+X-Par: ver=MSSP+0%2E9&sub=auth&cmd=lgi&cver=5%2E0%2E44%2E1288&key=08J/D9BuKlyIY=
+Host: open.xf-yun.com
+CT: multipart/mixed;boundary=--
+CL: 331
+
+----
+Content-Length:56
+Content-Type:text/appinfo
+Content-Encoding:gzip,encrypt/0.2
+
+£·ÕÄ+õ“œ÷WQV/T—RQW*V+/PTWS/V—“.,TR+(,//WQbbﬂ:h*  
+[2023/09/19 10:06:53 285] transport  1819 transport:try2send,#msg_q=  0  
+[2023/09/19 10:06:53 285] network    362  readable  ns2  
+[2023/09/19 10:06:53 285] network    366  HTTP/1.1 200 OK
+Server: iflytek/hdns
+Date: Tue, 19 Sep 2023 02:06:52 GMT
+Content-Type: application/json
+Content-Length: 314
+Connection: close
+
+{"dns":[{"host":"open.xf-yun.com","sip":[{"svc":"ath","ips":[{"ip":"114.118.65.91","port":80,"idc":"jxq"},{"ip":"114.118.65.97","port":80,"idc":"jxq"}],"ttl":6000,"compel":0}]}],"default":[{"host":"open.xf-yun.com","sip":[{"svc":"ath","ips":[{"ip":"114.118.65.97","port":80,"idc":"jxq"}],"ttl":6000,"compel":0}]}]}  
+[2023/09/19 10:06:53 286] ns         253  name server http resp  0  
+[2023/09/19 10:06:53 286] ns         266  ns response OK for this time!  
+[2023/09/19 10:06:53 286] ns         277  from_server=  iflytek/hdns  
+[2023/09/19 10:06:53 287] ns         360  compel :  0  
+[2023/09/19 10:06:53 288] transport  1063 ns_ip =   114.118.65.91  
+[2023/09/19 10:06:53 288] transport  1064 ip_type =  assigned_athopen.xf-yun.com_host  
+[2023/09/19 10:06:53 288] ns         670  no data in ns_q  
+[2023/09/19 10:06:53 288] ns         671  conti_ns,ns_inprog =   1  
+[2023/09/19 10:06:53 288] transport  482  [soc] [1] send ok  516  
+[2023/09/19 10:06:53 288] transport  1799 transport_obj.try2send | in  
+[2023/09/19 10:06:53 288] transport  1800 self.soc  udata(dc0331d8) 
+[2023/09/19 10:06:53 288] transport  1801 self.connected  true  
+[2023/09/19 10:06:53 288] transport  1802 self.latesterr  0  
+[2023/09/19 10:06:53 288] transport  1819 transport:try2send,#msg_q=  0  
+[2023/09/19 10:06:53 339] transport  494  [soc] [1] readable  
+[2023/09/19 10:06:53 339] transport  1767 HTTP/1.1 200 OK
+Content-Length: 1
+X-Req-Date: 2023/09/19 10:06:53 303
+X-Par: ver=MSSP+0%2E9&ret=0&cver=5%2E0%2E44%2E1288&uid=d18794352986&key=0b87uM0W13Ttr5buqG5zOy^HZmrpkXcL4iHejB3u4L08e^^GHVr44O7DzfnSnfSxrqEahEMmTNHMxFpO3Bt4l2LEWk7cG3iXYs
+CT: text/plain
+CL: 1
+Content-Length: 1
+X-Res-Date: 2023/09/19 10:06:53 320
+
+0  
+[2023/09/19 10:06:53 339] transport  1494 a_complete_httpmessage  200  
+[2023/09/19 10:06:53 339] transport  1604 is_update  false  
+[2023/09/19 10:06:53 339] lgi        105  [trans] [id = lgi_] readable  
+[2023/09/19 10:06:53 340] network    90   ipfromenv ,  ipcache  open.xf-yun.com  def  114.118.65.97  
+[2023/09/19 10:06:53 340] transport  978  unexpected cached ip  
+[2023/09/19 10:06:53 340] network    95   iptoenv ,  ipcache  open.xf-yun.com  def  nil  
+[2023/09/19 10:06:53 341] transport  1332 [soc] disconnect   
+[2023/09/19 10:06:53 341] transport  991  transport clean  
+[2023/09/19 10:06:53 341] lgi        136  lgi resp!  
+[2023/09/19 10:06:53 342] lgi        143  lgi ok!  
+[2023/09/19 10:06:53 342] lgi        151  unkown  d18794352986  
+[2023/09/19 10:06:53 342] lgi        72   loginid =   1  d18794352986  
+[2023/09/19 10:06:53 342] lgi        75   notify_lgi_result, ret = 0  
+[2023/09/19 10:06:54 972] lgi        697  SYS_MSG_SHUTDOWN  
+============================================================
+Time  2023/09/19 10:08:05 312 
+============================================================
+[2023/09/19 10:08:05 312] lgi        684  SYS_MSG_LOAD  
+[2023/09/19 10:08:05 312] lgi        706  SYS_MSG_REGCB  msp_status_cb  func(68013210) 
+[2023/09/19 10:08:05 312] lgi        298  LGI_MSG_INIT  
+[2023/09/19 10:08:05 312] lgi        305  lgi  lgi_  268436457  1573471853  
+[2023/09/19 10:08:05 312] lgi        347  work_dir  .  
+[2023/09/19 10:08:05 312] lgi        403  token:  nil  
+[2023/09/19 10:08:05 312] lgi        476  msc cver : 5.0.44.1288  
+[2023/09/19 10:08:05 312] lgi        519  ns_enable=  1  
+[2023/09/19 10:08:05 312] lgi        531  prot_ver=1  
+[2023/09/19 10:08:05 312] lgi        542  prot_type=tcp  
+[2023/09/19 10:08:05 312] lgi        693  SYS_MSG_UNLOAD  go bg!  
+[2023/09/19 10:08:05 317] lgi        598  LGI_MSG_START, caller =  ctts1P1HHBHIaE01hejOWaaBc3azruY-CHH  
+[2023/09/19 10:08:05 317] lgi        604  lgistat =   0  
+[2023/09/19 10:08:05 317] lgi        630  lgi_auth_id =  nil  
+[2023/09/19 10:08:05 317] transport  645  paramkvsport is   0  
+[2023/09/19 10:08:05 317] transport  657  ns_enable=  1  
+[2023/09/19 10:08:05 317] transport  659  2017-08--24 is_ns_need_close =   nil  
+[2023/09/19 10:08:05 317] transport  665  net.nettype=  unknown  
+[2023/09/19 10:08:05 317] transport  675  url.full=  nil  
+[2023/09/19 10:08:05 318] transport  680  server_url_host=, server_url_port=, server_url_path=  open.xf-yun.com  nil  /msp.do  
+[2023/09/19 10:08:05 318] transport  907  net type:  unknown  
+[2023/09/19 10:08:05 318] transport  908  net operator:  def  
+[2023/09/19 10:08:05 318] transport  909  use proxy:  false  
+[2023/09/19 10:08:05 318] lgi        277  [session] send lgi request  
+[2023/09/19 10:08:05 318] transport  1105 session.domain=  open.xf-yun.com  
+[2023/09/19 10:08:05 318] transport  1106 url.host=  open.xf-yun.com  
+[2023/09/19 10:08:05 318] transport  1083 NAMESERVER START  
+[2023/09/19 10:08:05 318] transport  1086 name =   ath  
+[2023/09/19 10:08:05 318] ns         634  ntt=  unknown  
+[2023/09/19 10:08:05 318] transport  1089 trans,ns_inprog =  0  
+[2023/09/19 10:08:05 318] ns         582  name server start  
+[2023/09/19 10:08:05 318] ns         588  ns_sub =   ath  
+[2023/09/19 10:08:05 318] ns         596  ns_host =   open.xf-yun.com  
+[2023/09/19 10:08:05 318] ns         475  ns_host=  open.xf-yun.com  
+[2023/09/19 10:08:05 318] ns         555  net_type =  standard  
+[2023/09/19 10:08:05 318] ns         556  cmwapascmnet =  
+[2023/09/19 10:08:05 318] ns         557  uniwapasuninet =  
+[2023/09/19 10:08:05 318] ns         558  ctwapasctnet =  
+[2023/09/19 10:08:05 319] ns         576  host=  hdns.xf-yun.com  
+[2023/09/19 10:08:05 319] network    263  gethostbyname  hdns.xf-yun.com  ns1  
+[2023/09/19 10:08:05 319] lgi        244  lver:  nil  
+[2023/09/19 10:08:05 319] lgi        249  cfg_ver:  nil  
+[2023/09/19 10:08:05 319] transport  1860 transport_obj.send | in  
+[2023/09/19 10:08:05 319] transport  1866 self.msg_flag_q  table(6801b990) 
+[2023/09/19 10:08:05 319] transport  1867 self.msg_q  table(6801e6f0) 
+[2023/09/19 10:08:05 319] transport  1799 transport_obj.try2send | in  
+[2023/09/19 10:08:05 319] transport  1800 self.soc  nil  
+[2023/09/19 10:08:05 319] transport  1801 self.connected  false  
+[2023/09/19 10:08:05 319] transport  1802 self.latesterr  0  
+[2023/09/19 10:08:05 319] transport  1873 transport_obj.send | out  
+[2023/09/19 10:08:05 330] network    245  dns resp  0  ns1  
+[2023/09/19 10:08:05 330] ns         422  ns dns ok  101.200.180.128  
+[2023/09/19 10:08:05 330] ns         202  iplist not avail  
+[2023/09/19 10:08:05 330] ns         429  is_voicecloud_ip=  0  
+[2023/09/19 10:08:05 330] ns         436  ip_is_expected=  true  
+[2023/09/19 10:08:05 330] ns         444  ip_is_expected=  true  
+[2023/09/19 10:08:05 331] network    445  gethttpresp2  101.200.180.128  80  ns2  
+[2023/09/19 10:08:05 331] network    465  prot_type  tcp  
+[2023/09/19 10:08:05 339] transport  194  [dns] [1] response 114.118.65.89  
+[2023/09/19 10:08:05 339] transport  202  114  118  65  89  
+[2023/09/19 10:08:05 339] transport  204  ipv =  v4  
+[2023/09/19 10:08:05 339] transport  208  dns ip is v4  
+[2023/09/19 10:08:05 339] transport  130  iplist not avail  
+[2023/09/19 10:08:05 339] transport  247  no iplist now  
+[2023/09/19 10:08:05 340] network    95   iptoenv ,  ipcache  open.xf-yun.com  def  114.118.65.89  
+[2023/09/19 10:08:05 341] transport  291  dns cb start conn  
+[2023/09/19 10:08:05 341] transport  1304 [soc] connect   114.118.65.89  1028  
+[2023/09/19 10:08:05 341] transport  1316 mspsoc.open,prot_type=  tcp  
+[2023/09/19 10:08:05 365] network    350  connected  ns2  
+[2023/09/19 10:08:05 365] network    353  send ok  268  ns2  
+[2023/09/19 10:08:05 396] transport  473  [soc] [1] connected  
+[2023/09/19 10:08:05 396] transport  1799 transport_obj.try2send | in  
+[2023/09/19 10:08:05 396] transport  1800 self.soc  udata(680331d8) 
+[2023/09/19 10:08:05 396] transport  1801 self.connected  true  
+[2023/09/19 10:08:05 396] transport  1802 self.latesterr  0  
+[2023/09/19 10:08:05 397] transport  1819 transport:try2send,#msg_q=  1  
+[2023/09/19 10:08:05 397] transport  1359 build http request.  
+[2023/09/19 10:08:05 397] transport  1476 POST /msp.do HTTP/1.1
+X-Sub: auth
+X-Par: ver=MSSP+0%2E9&sub=auth&cmd=lgi&cver=5%2E0%2E44%2E1288&key=08J/D9BuKlyIY=
+Host: open.xf-yun.com
+CT: multipart/mixed;boundary=--
+CL: 331
+
+----
+Content-Length:56
+Content-Type:text/appinfo
+Content-Encoding:gzip,encrypt/0.2
+
+£·ÕÄ+õ“œ÷WQV/T—RQW*V+/PTWS/V—“.,TR+(,//WQbbﬂ:h*  
+[2023/09/19 10:08:05 398] transport  1819 transport:try2send,#msg_q=  0  
+[2023/09/19 10:08:05 398] transport  482  [soc] [1] send ok  516  
+[2023/09/19 10:08:05 398] transport  1799 transport_obj.try2send | in  
+[2023/09/19 10:08:05 398] transport  1800 self.soc  udata(680331d8) 
+[2023/09/19 10:08:05 398] transport  1801 self.connected  true  
+[2023/09/19 10:08:05 398] transport  1802 self.latesterr  0  
+[2023/09/19 10:08:05 398] transport  1819 transport:try2send,#msg_q=  0  
+[2023/09/19 10:08:05 407] network    362  readable  ns2  
+[2023/09/19 10:08:05 407] network    366  HTTP/1.1 200 OK
+Server: iflytek/hdns
+Date: Tue, 19 Sep 2023 02:08:04 GMT
+Content-Type: application/json
+Content-Length: 314
+Connection: close
+
+{"dns":[{"host":"open.xf-yun.com","sip":[{"svc":"ath","ips":[{"ip":"114.118.65.90","port":80,"idc":"jxq"},{"ip":"114.118.65.91","port":80,"idc":"jxq"}],"ttl":6000,"compel":0}]}],"default":[{"host":"open.xf-yun.com","sip":[{"svc":"ath","ips":[{"ip":"114.118.65.91","port":80,"idc":"jxq"}],"ttl":6000,"compel":0}]}]}  
+[2023/09/19 10:08:05 407] ns         253  name server http resp  0  
+[2023/09/19 10:08:05 407] ns         266  ns response OK for this time!  
+[2023/09/19 10:08:05 407] ns         277  from_server=  iflytek/hdns  
+[2023/09/19 10:08:05 408] ns         360  compel :  0  
+[2023/09/19 10:08:05 409] transport  1063 ns_ip =   114.118.65.90  
+[2023/09/19 10:08:05 409] transport  1064 ip_type =  assigned_athopen.xf-yun.com_host  
+[2023/09/19 10:08:05 409] ns         670  no data in ns_q  
+[2023/09/19 10:08:05 409] ns         671  conti_ns,ns_inprog =   1  
+[2023/09/19 10:08:05 452] transport  494  [soc] [1] readable  
+[2023/09/19 10:08:05 452] transport  1767 HTTP/1.1 200 OK
+Content-Length: 1
+X-Req-Date: 2023/09/19 10:08:05 415
+X-Par: ver=MSSP+0%2E9&ret=0&cver=5%2E0%2E44%2E1288&uid=d18794352986&key=0bxlFALcIXoWOdXl1ltKz0Qen0EiSlpQNlbPHgFFNpwhq^^GHVr44O7DzfnSnfSxrqEahEMmTNHMxFpO3Bt4l2LEWk7cG3iXYs
+CT: text/plain
+CL: 1
+Content-Length: 1
+X-Res-Date: 2023/09/19 10:08:05 431
+
+0  
+[2023/09/19 10:08:05 453] transport  1494 a_complete_httpmessage  200  
+[2023/09/19 10:08:05 453] transport  1604 is_update  false  
+[2023/09/19 10:08:05 453] lgi        105  [trans] [id = lgi_] readable  
+[2023/09/19 10:08:05 453] network    90   ipfromenv ,  ipcache  open.xf-yun.com  def  114.118.65.92  
+[2023/09/19 10:08:05 453] transport  981  cached ip is confirmed  
+[2023/09/19 10:08:05 453] transport  1332 [soc] disconnect   
+[2023/09/19 10:08:05 454] transport  991  transport clean  
+[2023/09/19 10:08:05 454] lgi        136  lgi resp!  
+[2023/09/19 10:08:05 454] lgi        143  lgi ok!  
+[2023/09/19 10:08:05 454] lgi        151  unkown  d18794352986  
+[2023/09/19 10:08:05 454] lgi        72   loginid =   1  d18794352986  
+[2023/09/19 10:08:05 454] lgi        75   notify_lgi_result, ret = 0  
+[2023/09/19 10:08:06 931] lgi        697  SYS_MSG_SHUTDOWN  

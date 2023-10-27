@@ -6,19 +6,25 @@ void execute(const action_sample::DoDishesGoalConstPtr& goal, actionlib::SimpleA
   ros::Rate rate(1);
 
   action_sample::DoDishesFeedback feedback;
-
+  action_sample::DoDishesResult result;
   ROS_INFO("dishwasher %d is working", goal->dishwasher_id);
 
-  for (int i = 0; i < 10; i++) {
+  int i = 0;
+  for (i = 0; i < 10; i++) {
     feedback.percent_complete = i * 10;
     server->publishFeedback(feedback);
     rate.sleep();
+
+    if (server->isPreemptRequested()) {
+      ROS_INFO("The goal is canceled");
+      result.total_dishes_cleaned = i*10;
+      server->setPreempted(result);
+      return;
+    }
   }
 
-  action_sample::DoDishesResult result;
-  result.total_dishes_cleaned = 188;
-
   ROS_INFO("dishwasher %d finish working", goal->dishwasher_id);
+  result.total_dishes_cleaned = i*10;
   server->setSucceeded(result);
 }
 

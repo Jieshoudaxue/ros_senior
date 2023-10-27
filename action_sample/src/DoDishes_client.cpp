@@ -30,9 +30,10 @@ int main(int argc, char** argv) {
 
   client.sendGoal(goal, &doneCb, &activeCb, &feedbackCb);
 
+  // sleep(4);
+  // client.cancelGoal();
+
   ros::spin();
-
-
 
   return 0;
 }

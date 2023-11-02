@@ -1,0 +1,19 @@
+<launch>
+
+<node
+    pkg="action_sample"
+    type="DoDishes_client.py"
+    name="do_dishes_client"
+    required="true"
+    output="screen"
+/>
+
+<node
+    pkg="action_sample"
+    type="DoDishes_server.py"
+    name="do_dishes_server"
+    respawn="true"
+    output="screen"
+/>
+
+</launch>

@@ -4,11 +4,6 @@ import rospy
 import actionlib
 from action_sample.msg import DoDishesAction, DoDishesGoal, DoDishesFeedback, DoDishesResult
 
-def execute_cb(goal, server):
-  rate = rospy.Rate(1)
-  
-  rospy.loginfo("dishwasher %d is working" %goal.dishwasher_id)
-
 class DishWasherServer(object):
   def __init__(self, action_name):
     self._action_name = action_name

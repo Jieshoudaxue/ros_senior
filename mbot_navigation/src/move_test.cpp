@@ -7,16 +7,15 @@ int main(int argc, char** argv) {
 
   actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> move_base_client("move_base", true);
 
-  while (move_base_client.waitForServer(ros::Duration(5.0)) != 0) {
-    ROS_INFO("Waiting for move_base action server...");  
-  }
+  ROS_INFO("Waiting for move_base action server...");  
+  move_base_client.waitForServer();
   ROS_INFO("connected to move base server");
 
   move_base_msgs::MoveBaseGoal goal;
   goal.target_pose.header.frame_id = "map";
   goal.target_pose.header.stamp = ros::Time::now();
 
-  goal.target_pose.pose.position.x = -5.543;
+  goal.target_pose.pose.position.x = -10.543;
   goal.target_pose.pose.position.y = -4.779;
 
   goal.target_pose.pose.orientation.z = 0.645;

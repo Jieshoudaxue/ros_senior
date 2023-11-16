@@ -1,0 +1,7 @@
+<launch>
+
+    <include file="$(find mbot_navigation)/launch/gmapping.launch"/>
+
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find mbot_navigation)/rviz/map.rviz"/>
+
+</launch>

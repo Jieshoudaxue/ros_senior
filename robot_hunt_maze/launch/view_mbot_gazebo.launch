@@ -1,0 +1,8 @@
+<launch>
+
+    <include file="$(find robot_hunt_maze)/launch/mbot_gazebo.launch"/>
+
+	<!-- 运行rviz可视化界面 -->
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find robot_hunt_maze)/rviz/mbot_gazebo.rviz" required="true" />
+
+</launch>

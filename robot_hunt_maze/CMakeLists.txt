@@ -11,7 +11,9 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   std_msgs
+  actionlib
   geometry_msgs
+  move_base_msgs
   message_generation 
 )
 
@@ -56,11 +58,10 @@ find_package(catkin REQUIRED COMPONENTS
 # )
 
 ## Generate services in the 'srv' folder
-# add_service_files(
-#   FILES
-#   Service1.srv
-#   Service2.srv
-# )
+add_service_files(
+  FILES
+  StringToVoice.srv
+)
 
 ## Generate actions in the 'action' folder
 # add_action_files(
@@ -70,11 +71,10 @@ find_package(catkin REQUIRED COMPONENTS
 # )
 
 ## Generate added messages and services with any dependencies listed here
-# generate_messages(
-#   DEPENDENCIES
-#   std_msgs  # Or other packages containing msgs
-# )
-
+generate_messages(
+  DEPENDENCIES
+  std_msgs
+)
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
 ################################################
@@ -107,7 +107,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES robot_hunt_maze
-#  CATKIN_DEPENDS roscpp rospy
+  CATKIN_DEPENDS message_runtime roscpp rospy std_msgs
 #  DEPENDS system_lib
 )
 
@@ -118,7 +118,7 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-# include
+  include
   ${catkin_INCLUDE_DIRS}
 )
 
@@ -137,6 +137,10 @@ include_directories(
 ## The recommended prefix ensures that target names across packages don't collide
 # add_executable(${PROJECT_NAME}_node src/robot_hunt_maze_node.cpp)
 
+add_executable(move_to_target src/move_to_target.cpp)
+
+add_executable(voice_creator src/voice_creator.cpp)
+
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
@@ -148,9 +152,16 @@ include_directories(
 # add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-# target_link_libraries(${PROJECT_NAME}_node
-#   ${catkin_LIBRARIES}
-# )
+add_dependencies(move_to_target ${PROJECT_NAME}_generate_messages_cpp)
+target_link_libraries(move_to_target
+  ${catkin_LIBRARIES} 
+)
+
+add_dependencies(voice_creator ${PROJECT_NAME}_generate_messages_cpp)
+target_link_libraries(voice_creator
+  ${catkin_LIBRARIES} 
+  libmsc.so -ldl -pthread
+)
 
 #############
 ## Install ##
@@ -161,10 +172,10 @@ include_directories(
 
 ## Mark executable scripts (Python etc.) for installation
 ## in contrast to setup.py, you can choose the destination
-# catkin_install_python(PROGRAMS
-#   scripts/my_python_script
-#   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-# )
+catkin_install_python(PROGRAMS
+  scripts/exploring_maze.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
 
 ## Mark executables for installation
 ## See http://docs.ros.org/melodic/api/catkin/html/howto/format1/building_executables.html

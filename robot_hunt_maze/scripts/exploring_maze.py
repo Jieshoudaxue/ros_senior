@@ -8,7 +8,7 @@ from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
 
 
 def main():
-  rospy.init_node("move_test", anonymous=True)
+  rospy.init_node("exploring_maze", anonymous=True)
   
   move_base_client = actionlib.SimpleActionClient("move_base", MoveBaseAction)
   

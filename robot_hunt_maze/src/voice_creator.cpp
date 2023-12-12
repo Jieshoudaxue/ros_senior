@@ -160,6 +160,8 @@ public:
 
   bool Speeking(robot_hunt_maze::StringToVoice::Request &req, robot_hunt_maze::StringToVoice::Response &resp) {
     int ret = -1;
+    ROS_INFO("receive txt : %s", req.data.c_str());
+    
     ret = ProcessTxt(req.data);
     if (MSP_SUCCESS != ret) {
       ROS_ERROR("AnswerVoice failed, error code: %d", ret);

@@ -137,8 +137,6 @@ include_directories(
 ## The recommended prefix ensures that target names across packages don't collide
 # add_executable(${PROJECT_NAME}_node src/robot_hunt_maze_node.cpp)
 
-add_executable(move_to_target src/move_to_target.cpp)
-
 add_executable(voice_creator src/voice_creator.cpp)
 
 ## Rename C++ executable without prefix
@@ -152,10 +150,6 @@ add_executable(voice_creator src/voice_creator.cpp)
 # add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-add_dependencies(move_to_target ${PROJECT_NAME}_generate_messages_cpp)
-target_link_libraries(move_to_target
-  ${catkin_LIBRARIES} 
-)
 
 add_dependencies(voice_creator ${PROJECT_NAME}_generate_messages_cpp)
 target_link_libraries(voice_creator
@@ -173,7 +167,7 @@ target_link_libraries(voice_creator
 ## Mark executable scripts (Python etc.) for installation
 ## in contrast to setup.py, you can choose the destination
 catkin_install_python(PROGRAMS
-  scripts/exploring_maze.py
+  scripts/exploring_maze.py scripts/move_to_target.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 

@@ -16,7 +16,7 @@
 
     <node
         pkg="robot_hunt_maze"
-        type="move_to_target"
+        type="move_to_target.py"
         name="move_to_target"
         launch-prefix="bash -c 'sleep 10; $0 $@'"
         output="screen"

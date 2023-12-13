@@ -60,18 +60,12 @@ def main():
     rospy.loginfo("going to {0} goal, {1}".format(i, str(target)))
     
     move_base_client.send_goal(goal)
-    
-    finished_within_time = move_base_client.wait_for_result(rospy.Duration(300))
-    
-    if not finished_within_time:
-      move_base_client.cancel_goal()
-      rospy.loginfo("time out, failed to goal")
-    else:
+    move_base_client.wait_for_result()
+    if move_base_client.get_state() == GoalStatus.SUCCEEDED:
       running_time = (rospy.Time.now() - start_time).to_sec()
-      if move_base_client.get_state() == GoalStatus.SUCCEEDED:
-        rospy.loginfo("go to {0} goal succeeded, run time: {1} sec".format(i, running_time))
-      else:
-        rospy.loginfo("goal failed")
+      rospy.loginfo("go to {0} goal succeeded, run time: {1} sec".format(i, running_time))
+    else:
+      rospy.loginfo("goal failed")
     
 
 if __name__ == "__main__":

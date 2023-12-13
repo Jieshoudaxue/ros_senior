@@ -1,0 +1,33 @@
+<launch>
+
+  <node
+      pkg="robot_hunt_maze"
+      type="voice_creator"
+      name="voice_creator"
+      output="screen"
+  />
+
+  <node
+      pkg="robot_hunt_maze"
+      type="exploring_maze.py"
+      name="exploring_maze"
+      output="screen"
+  />
+
+  <node
+      pkg="robot_hunt_maze"
+      type="maze_detect.py"
+      name="maze_detect"
+      output="screen"
+  />
+
+    <node
+        pkg="robot_hunt_maze"
+        type="move_to_target.py"
+        name="move_to_target"
+        launch-prefix="bash -c 'sleep 3; $0 $@'"
+        output="screen"
+    />
+
+
+</launch>

@@ -73,7 +73,7 @@ def main():
     
     bind_image_cb = partial(image_cb, cv_bridge=bridge, image_pub=image_pub, maze_pose_pub=maze_pose_pub)
 
-    rospy.Subscriber("/usb_cam/image_raw", Image, bind_image_cb)
+    rospy.Subscriber("/camera/image_raw", Image, bind_image_cb)
 
     
     rospy.spin()

@@ -13,19 +13,19 @@ from std_msgs.msg import Int8
 STATUS_EXPLORING    = 0
 STATUS_CLOSE_TARGET = 1
 STATUS_GO_HOME      = 2
-GET_TARGET_SIZE     = 90000
+GET_TARGET_SIZE     = 100000
 
-status_flag         = STATUS_EXPLORING
+g_status_flag       = STATUS_EXPLORING
 
 
 def pose_cb(pose, state_pub, cmd_pub, voice_client):
-  rospy.loginfo("Target pose: x:%0.6f, y:%0.6f, z:%0.6f" %(pose.position.x, pose.position.y, pose.position.z))
-
-  if status_flag == STATUS_EXPLORING:
-    status_flag = STATUS_CLOSE_TARGET
+  global g_status_flag
+  # rospy.loginfo("Target pose: x:%0.6f, y:%0.6f, z:%0.6f" %(pose.position.x, pose.position.y, pose.position.z))
+  if g_status_flag == STATUS_EXPLORING:
+    g_status_flag = STATUS_CLOSE_TARGET
     
     state_msg = Int8()
-    state_msg.data = status_flag
+    state_msg.data = g_status_flag
     state_pub.publish(state_msg)
 
     req = StringToVoiceRequest()
@@ -33,11 +33,11 @@ def pose_cb(pose, state_pub, cmd_pub, voice_client):
     resp = voice_client(req)
     rospy.loginfo("send txt %s, resp %d" %(req.data, resp.success))    
     
-  elif status_flag == STATUS_CLOSE_TARGET and pose.position.z > GET_TARGET_SIZE:
-    status_flag = STATUS_GO_HOME
+  elif g_status_flag == STATUS_CLOSE_TARGET and pose.position.z > GET_TARGET_SIZE:
+    g_status_flag = STATUS_GO_HOME
     
     state_msg = Int8()
-    state_msg.data = status_flag
+    state_msg.data = g_status_flag
     state_pub.publish(state_msg)
 
     req = StringToVoiceRequest()
@@ -46,15 +46,13 @@ def pose_cb(pose, state_pub, cmd_pub, voice_client):
     rospy.loginfo("send txt %s, resp %d" %(req.data, resp.success))        
     
     
-  elif status_flag == STATUS_CLOSE_TARGET:
+  elif g_status_flag == STATUS_CLOSE_TARGET:
     vel_msg = Twist()
-    vel_msg.linear.x = (100000 - pose.position.z) / 100000 * 0.3
-    vel_msg.angular.z = (640 - pose.position.x) / 640 * 0.3
+    vel_msg.linear.x = (200000 - pose.position.z) / 200000 * 0.3
+    vel_msg.angular.z = (600 - pose.position.x) / 600 * 0.3
 
     cmd_pub.publish(vel_msg)
   
-
-
 def main():
   rospy.init_node("move_to_target", anonymous=True)
 

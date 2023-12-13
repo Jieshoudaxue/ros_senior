@@ -41,12 +41,14 @@ def image_cb(msg, cv_bridge, image_pub, maze_pose_pub):
     cnts, hierarchy = cv2.findContours(thresh, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
     for c in cnts:
         M = cv2.moments(c)
-
-        if int(M["m00"]) not in range(20000, 250000):
+        
+        if int(M["m00"]) not in range(5000, 250000):
             continue
-            
+
         cX = int(M["m10"] / M["m00"])
         cY = int(M["m01"] / M["m00"])
+
+        # print("cX {0} cY {1} m00 {2}".format(cX, cY, int(M["m00"])))
 
         cv2.drawContours(cv_image, [c], -1, (0, 0, 255), 2)
         cv2.circle(cv_image, (cX, cY), 1, (0, 0, 255), -1)

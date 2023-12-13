@@ -7,12 +7,12 @@
       output="screen"
   />
 
-  <!-- <node
+  <node
       pkg="robot_hunt_maze"
       type="exploring_maze.py"
       name="exploring_maze"
       output="screen"
-  /> -->
+  />
 
   <node
       pkg="robot_hunt_maze"
@@ -25,7 +25,7 @@
         pkg="robot_hunt_maze"
         type="move_to_target.py"
         name="move_to_target"
-        launch-prefix="bash -c 'sleep 5; $0 $@'"
+        launch-prefix="bash -c 'sleep 3; $0 $@'"
         output="screen"
     />
 

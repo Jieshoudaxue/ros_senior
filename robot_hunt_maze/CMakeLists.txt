@@ -167,7 +167,7 @@ target_link_libraries(voice_creator
 ## Mark executable scripts (Python etc.) for installation
 ## in contrast to setup.py, you can choose the destination
 catkin_install_python(PROGRAMS
-  scripts/exploring_maze.py scripts/move_to_target.py
+  scripts/exploring_maze.py scripts/move_to_target.py scripts/maze_detect.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 

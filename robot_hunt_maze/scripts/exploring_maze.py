@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import rospy
+import random
 import actionlib
 from actionlib_msgs.msg import *  
 from geometry_msgs.msg import Pose, PoseWithCovarianceStamped, Point, Quaternion, Twist  
@@ -20,7 +21,7 @@ target_list.append(Pose(Point(2.5, 4.8, 0), Quaternion(0, 0, 0, 1.0)))
 target_list.append(Pose(Point(0, 0, 0), Quaternion(0, 0, 0, 1.0)))
 
 def state_cb(state, move_base_client):
-  rospy.loginfo("receive state is %d" state.data)
+  rospy.loginfo("receive state is %d" %state.data)
   
   if state.data == STATUS_CLOSE_TARGET:
     move_base_client.cancel_goal()
@@ -49,15 +50,17 @@ def main():
   bind_state_cb = partial(state_cb, move_base_client=move_base_client)
   rospy.Subscriber("/state_cmd", Int8, bind_state_cb)
 
-  for i, target in enumerate(target_list):
+  while not rospy.is_shutdown():
     start_time = rospy.Time.now()  
     
+    i = random.randint(0,4)
+    
     goal = MoveBaseGoal()
-    goal.target_pose.pose = target
+    goal.target_pose.pose = target_list[i]
     goal.target_pose.header.frame_id = 'map'
     goal.target_pose.header.stamp = rospy.Time.now()
     
-    rospy.loginfo("going to {0} goal, {1}".format(i, str(target)))
+    rospy.loginfo("going to {0} goal, {1}".format(i, str(target_list[i])))
     
     move_base_client.send_goal(goal)
     move_base_client.wait_for_result()
@@ -65,8 +68,9 @@ def main():
       running_time = (rospy.Time.now() - start_time).to_sec()
       rospy.loginfo("go to {0} goal succeeded, run time: {1} sec".format(i, running_time))
     else:
-      rospy.loginfo("goal failed")
-    
+      break
+
+  rospy.spin()    
 
 if __name__ == "__main__":
   main()

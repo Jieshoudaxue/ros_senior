@@ -22,6 +22,7 @@ def main():
   target_list.append(Pose(Point(8, 8, 0), Quaternion(0, 0, 0, 1.0)))
   target_list.append(Pose(Point(8, 0, 0), Quaternion(0, 0, 0, 1.0)))
   target_list.append(Pose(Point(2.5, 4.8, 0), Quaternion(0, 0, 0, 1.0)))
+  target_list.append(Pose(Point(0, 0, 0), Quaternion(0, 0, 0, 1.0)))
 
   for i, target in enumerate(target_list):
     start_time = rospy.Time.now()  

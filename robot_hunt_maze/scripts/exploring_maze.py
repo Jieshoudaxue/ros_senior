@@ -53,7 +53,7 @@ def main():
   while not rospy.is_shutdown():
     start_time = rospy.Time.now()  
     
-    i = random.randint(0,4)
+    i = random.SystemRandom().randint(0, 4)
     
     goal = MoveBaseGoal()
     goal.target_pose.pose = target_list[i]

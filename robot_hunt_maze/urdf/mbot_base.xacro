@@ -251,7 +251,8 @@
   <xacro:robot_base />  
 
   <xacro:include filename="$(find robot_hunt_maze)/urdf/sensor/camera.xacro" />
-  <xacro:usb_camera joint_x="${camera_joint_x}" joint_y="${camera_joint_y}" joint_z="${camera_joint_z}"/>  
+  <xacro:usb_camera prefix="front"  reflect="1" turn="0" />  
+  <xacro:usb_camera prefix="back"  reflect="-1" turn="${M_PI}"/>  
 
   <xacro:include filename="$(find robot_hunt_maze)/urdf/sensor/laser.xacro" />
   <xacro:laser joint_x="${laser_joint_x}" joint_y="${laser_joint_y}" joint_z="${laser_joint_z}"/>  
